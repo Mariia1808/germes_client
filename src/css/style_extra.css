@@ -1,0 +1,1153 @@
+h3 {
+    font-size: 14px;
+    color: #363636;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+/* E.I. */
+.tab_api_key .form_input input {
+    height: 28px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    width: 180px;
+}
+
+.box .form_input input {
+    height: 28px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    width: 180px;
+}
+
+.qa_back {
+    text-decoration: none;
+    color: #2880da;
+    font-weight: 300;
+    font-size: 15px        
+}
+
+.qa_link {
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: 500;
+    font-size: 15px        
+}
+
+.tag {
+    margin-bottom: 4px;
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;    
+}
+
+.tag > a {
+    font-size: 13px;
+    color: #666;
+    border-radius: 3px;
+    padding: 4px 6px;
+    background: #f0f0f0;
+}
+
+.list > li {
+    padding-bottom: 20px;
+}
+
+.bubble {
+    min-height: 30px;
+    max-width: 55%;
+    position: relative;
+    left: -20px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #f0f0f0;
+    border-radius: 40px;
+    font-size: 16px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;        
+}
+
+.bubble pre {
+    white-space: break-spaces;
+}
+
+.bubble a:hover {
+    text-decoration: underline;
+}
+
+.bubble a:visited {
+    color: blue;
+}
+/* E.I. divs внутри bible для отзывов */
+.reviews_vk .list li:first-child {
+    padding-top: 20px;
+}
+.review_link{
+    width: 100%;
+}
+.review_link a:hover {
+    text-decoration: none;
+}
+.review_link a img {
+    padding-top: 5px;
+}
+.review_link a > div:first-child {
+    float: left;
+    width: 65px;
+    padding: 0;
+    display: inline;
+}
+.review_link a > div:last-child {
+    position: relative;
+    font-weight: bold;
+    color: darkblue;
+    margin-right: 0;
+}
+/* E.I. end review */            
+.main_news {
+    min-height: 30px;
+    position: relative;
+    left: -20px;
+    padding: 20px;
+    background-color: snow;
+    font-size: 16px;
+    line-height: 1.8;   
+    border-radius: 20px;     
+}
+
+.main_news pre {
+    white-space: break-spaces;
+}
+
+.main_news pre b, .bubble pre b {
+    font-weight: bold;
+}
+
+.main_news pre em, .bubble pre em {
+    font-style: italic;
+}
+/* E.I. end */
+.box, .box-buybot {
+    position: relative;
+    width: calc(100% - 60px);
+    height: auto;
+    padding: 0 30px 30px 30px;
+}
+.box:last-child {
+    margin-right: 0;
+}
+
+.column-2, .column-3 {
+    width: calc(50% - 77px);
+    background: #ffffff;
+    float: left;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    padding: 30px;
+    min-height: 50px;
+}
+.column-2 {
+    min-width: 500px;
+}
+.column-3 {
+    width: calc(25% - 77px); 
+    margin-right: 20px;
+} 
+.column-2:last-child {
+    margin-right: 0;
+    margin-left: 15px;
+}
+@media only screen and (max-width: 1535px) {
+    .column-2 {
+        min-width: 94%;
+    }
+    .column-2:last-child {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+/* E.I. Для страницы Финансов */
+.column-2-fin {
+    width: calc(50% - 73px);
+    background: #ffffff;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    padding: 30px;
+    min-height: 50px;
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;    
+    vertical-align: top;
+}
+
+.column-3-fin {
+    width: 30%;
+    background: #ffffff;
+    margin-right: 20px;
+    min-height: 50px;
+    position: relative;
+    display: inline-block;
+}
+/* E.I. Для страницы Статистики */
+.column-2-stat {
+    width: calc(50% - 73px);
+    background: #ffffff;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.column-2-stat h6 {
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.column-2-stat h6 span{
+    font-weight: 300;
+}
+
+.column-2-stat h5 {
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: cadetblue;
+}
+
+.column-2-stat h5 span{
+    float: left;
+    margin-left: 100px;
+}
+
+.column-2-stat .fork_plus {
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+.column-2-stat .fork_minus {
+    color: gold;
+    font-weight: bold;
+    cursor: pointer;    
+}
+.column-2-stat .fork_bad {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.fork_details {
+    padding: 10px 45px 0;
+    margin-bottom: -10px;
+    line-height: 25px;
+    display: none;
+    font-size: 16px;
+}
+
+.fork_stat span {
+    font-weight: normal;
+}
+
+.last_fork {
+    color: darkblue;
+}
+
+.plus {
+    font-weight: bold;
+    color: green;
+}
+
+.minus {
+    font-weight: bold;
+    color: orange;
+}
+
+.bad {
+    font-weight: bold;
+    color: red;
+}
+/* Конец Статистики */
+.no-background {
+    background: none;
+    border: 0;
+}
+.column-2.attachment {
+    width: calc(50% - 17px);
+    padding: 0;
+}
+
+.column-3.attachment {
+    width: calc(33.3% - 14px);
+    padding: 0;
+}                           
+.finance i {
+    font-size: 14px;
+    margin-left: 5px;
+}
+.finance span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #95979c;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+.finance .note {
+    font-size: 13px;
+    font-weight: normal;
+    color: black;
+    text-transform: none;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.finance .note i {
+    font-size: 10px;
+    margin-left: 2px;
+}
+.finance strong {
+    font-size: 26px;
+}
+.btn_middle {
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1px solid #95979c;
+    display: block;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px;
+    text-align: center;
+    color:#95979c;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.btn_middle:hover, .btn_middle:focus {
+    border: 1px solid #ff9a21;
+    color: #ff9a21;
+}
+.box-balance {
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding: 30px 0;
+    display: none;
+}
+
+/* E.I. added for wallet and card number */
+.form_input label{
+    display: block;
+    clear: both;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #363636;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.form_input input[type="number"],
+.form_input input[type="text"]{
+    width: calc(70% - 42px);
+    display: block;
+    height: 26px;
+    border: 1px solid #95979c;
+    float: left;
+    outline: none;
+    margin-right: 20px;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.form_input input[type="text"] {
+    margin-bottom: 12px;
+}
+
+.form_input select {
+    height: 29px;
+    width: 100%;
+}
+
+#new_quest {
+    width: calc(50% - 42px);
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+/* End */
+.form_input input[type="number"] {
+    width: calc(70% - 42px);
+    display: block;
+    height: 26px;
+    border: 1px solid #95979c;
+    float: left;
+    outline: none;
+    margin-right: 20px;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+.form_input input[type="button"] {
+    float: left;
+    width: 30%;
+    height: 28px;
+    border: 1px solid #ff9a21;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    background: #ff9a21;
+    transition: all 0.5s;
+}
+#send_quest {
+    width: 15%;
+    margin-bottom: 30px;
+}
+.form_input input[type="button"]:hover,
+.form_input input[type="button"]:focus {
+    background: #141414;
+    border: 1px solid #141414;
+}
+.close {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+.close i{
+    font-size: 18px;
+    color: #95979c;
+    transition: all 0.5s;
+}
+.close:hover i {
+    color: #141414;
+}
+.active_block {
+    display: block;
+}
+.column-4-fin {
+    width: 25%;
+    float: left;
+}
+.form_input input[type="radio"]{
+    display: none;
+}
+.form_input .bank_system span{
+    cursor: pointer;
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+.form_input .bank_system #qiwi {
+    background: #ffffff  no-repeat center center ;
+    background-size: 80%;
+}
+.form_input input[type="radio"]:checked + #add_qiwi{
+    background: #ffffff no-repeat center center ;
+    background-size: 80%;
+}
+.form_input .bank_system #neteller {
+     background: #ffffff no-repeat center 18px ;
+     background-size: 80%;
+ }
+.form_input input[type="radio"]:checked + #neteller{
+    background: #ffffff no-repeat center 18px ;
+    background-size: 80%;
+}
+.form_input .bank_system #scrill {
+    background: #ffffff no-repeat center 6px ;
+    background-size: 80%;
+}
+.form_input input[type="radio"]:checked + #scrill{
+    background: #ffffff no-repeat center 6px ;
+    background-size: 80%;
+}
+.form_input .bank_system #visa {
+    background: #ffffff no-repeat center 8px ;
+    background-size: 80%;
+}
+.form_input input[type="radio"]:checked + #visa{
+    background: #ffffff no-repeat center 8px ;
+    background-size: 80%;
+}
+.form_input p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #95979c;
+}
+/* E.I. New form class */
+.form_request > div {
+    padding-bottom: 10px;
+}
+.form_request input[type='text'], textarea {
+    width: 50%;
+    font: normal 14px 'Open Sans', sans-serif;
+}
+.form_request input[type='button'] {
+    border: 1px solid #ff9a21;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    background: #ff9a21;
+    transition: all 0.5s;
+    font-size: 15px;
+    height: 28px;
+    width: 200px;    
+}
+/* End form class */
+.table {
+    width: 100%;
+    margin-top: 50px;
+}
+.table th {
+    font-size: 14px;
+    text-align: left;
+    padding: 20px 20px 20px 5px;
+    color: #141414;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.table thead {
+    background: #f3f3f3;
+}
+.table .partnership td {
+    padding: 13px 20px 13px 5px;
+    font-size: 14px;
+    font-weight: lighter;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.table td {
+    padding: 20px 20px 20px 5px;
+    font-size: 14px;
+    font-weight: lighter;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+/* E.I. Страница "Оформить подписку" */ 
+
+.box {
+    position: relative;
+    width: calc(100% - 60px);
+    height: auto;
+    padding: 30px; 
+}
+.price_page {
+    margin-top: -45px;
+}
+
+.column-4 {
+    width: calc(25% - 65px);
+    height: 280px; 
+    position: relative;
+    display: inline-block;    
+    background: #ffffff;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    padding: 30px;
+    float: none;
+    white-space: normal;
+}
+/* Оформить подписку */
+.box-buybot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: -25px;
+    height: auto;
+    padding: 30px;
+    width: calc(100% - 65px); 
+}
+.box-buybot .form_input input {
+    height: 28px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    width: 180px;
+}
+
+.column-buybot {
+    height: 280px;
+    min-width: 230px; 
+    position: relative;
+    display: inline-block;    
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    padding: 30px;
+}
+/* End of BuyBot page */
+.column-4 .form_price .content_form_price {
+    position: relative;
+    top: 45%;    
+}
+.price_page .title_price {
+    position: relative;
+}
+.price_page .title_price .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.price_page .title_price .icon i{
+    color: #363636;
+    font-size: 22px;
+}
+.price_page .title_price .text {
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
+.price_page .title_price .text h3{
+    margin-bottom: 20px;
+}
+.price_page .title_price .text p{
+   font-size: 14px;
+   color: #95979c;
+}
+.price_page .list ,
+.price_page .form_price form{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.price_page .form_price {
+    display: none;
+}
+.price_page .list li {
+    font-size: 14px;
+    color: #363636;
+    margin-bottom: 20px;
+}
+.price_page .list li span {
+    display: block;
+    font-size: 26px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+.price_page .list li span i{
+    color: #363636;
+    font-size: 16px;
+}
+.price_page .list li:last-child {
+    margin: 0;
+}
+.price_page .list li i {
+    color: #ff9a21;
+    margin-right: 10px;
+    display: inline-block;
+    width: 12px;
+    text-align: left;
+}
+.price_page .btn_bl {
+    position: absolute;
+    bottom: 30px;
+    left:30px;
+    width: calc(100% - 60px);
+    cursor: pointer;
+}
+.price_page .content_price {
+    display: none;
+}
+.price_page .form_price form{
+    width: calc(100% - 60px);
+    height: 278px;
+}
+.price_page .form_price input[type="button"] {
+    width: 100%;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 36px;
+}
+.price_page .form_price input[type="text"] {
+    width: calc(100% - 25px);
+    clear: both;
+}
+.price_page .form_price p{
+    line-height: 20px;
+}
+.price_page .form_price a{
+    color: #ff9a21;
+    text-decoration: underline;
+}
+.price_page .content_form_price {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.price_page .content_form_price p{
+    margin-bottom: 20px;
+}    
+.price_page .active {
+    display: block;
+}
+/* E.I. Для списков Proxy and VDS */
+.proxy_vds {
+    display: flex;
+	flex-wrap: wrap;
+    position: relative;
+    width: calc(100% - 33px);
+    height: auto;
+    padding: 30px 0 0 30px;    
+    white-space: nowrap;
+}
+
+.proxy_vds .pv_column-3 {
+    width: calc(33% - 80px);
+    height: auto;
+    min-height: 220px;
+    overflow: hidden;
+    position: relative;
+    display: flexbox;    
+    background: #ffffff;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    padding: 30px;
+    float: none;
+    white-space: normal;
+    /*margin-bottom: 20px;*/    
+}
+.proxy_vds .pv_column-3:nth-child(-n+3) {
+    margin-bottom: 20px;
+}
+.proxy_vds .pv_column-3 {
+    margin-bottom: 70px;
+}
+.proxy_vds .title_pv {
+    position: relative;
+}
+.proxy_vds .title_pv .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.proxy_vds .title_pv .icon i{
+    color: #363636;
+    font-size: 22px;
+}
+.proxy_vds .title_pv .text {
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
+.proxy_vds .title_pv .text h3 {
+    margin-bottom: 20px;
+}
+
+.proxy_vds .title_pv a:hover {
+    color: #ff9a21;
+}
+
+.pv_column-3 .logo {
+    position: absolute;
+    top: 25%;
+    transform: translate(0, -25%);
+    padding-left: 30px;
+    height: auto;
+}
+
+.pv_column-3 .proxy {
+    max-height: 100px;
+    height: auto;
+    max-width: 95%;
+}
+
+.pv_column-3 .desc {
+    position: relative; 
+    margin-top: 140px;
+}
+
+.pv_column-3 .desc p {
+   font-size: 15px;
+   color: darkgreen;
+   text-align: left;
+   line-height: 1.5;
+}
+
+.pv_banner {
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.pv_banner video {
+     width: 936px;
+     height: 120px;
+}
+/* E.I. Для кнопок Оставить и Продлить на странице "Мои подписки" */
+.pause_bk {
+    font-family: 'Font Awesome 5 Pro', sans-serif;
+    background: none;  
+    color: black;
+    border: 1px solid #363636;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.fa-lg, .fa-md {
+    background: none;  
+    color: gray;
+    border: 1px solid #363636;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    padding: 7px 0 8px;
+    border-radius: 5px;
+    transition: all 0.5s;    
+}
+
+.fa-lg:hover, .fa-md:hover {
+    color: #ff9a21;
+    border: 1px solid #ff9a21;
+}
+
+.empty_btn {
+    background: none;  
+    border: 1px solid white;
+    outline: none;
+    display: inline-block;
+    width: 30px;
+    padding: 7px 0 8px;
+}
+/* Блок для страници профиля */
+.profile_social {
+    margin-bottom: 0;
+}
+.profile_social p {
+    color: #777777;
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 70%;
+}
+.profile_social .btn_bl {
+    display: block;
+    width: 140px;
+    height: 36px;
+    color: #ffffff;
+    line-height: 36px;
+    background: #5181b8;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    padding-left: 36px;
+    transition: all 0.5s;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.profile_social .btn_bl span {
+    position: absolute;
+    display: block;
+    left: 0;
+    height: 36px;
+    width: 36px;
+    line-height: 38px;
+    border-right: 1px solid #ffffff;
+}
+.profile_social .btn_bl:hover ,
+.profile_social .btn_bl:focus {
+    background: #141414;
+}
+.profile span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #363636;
+    display: block;
+    margin-bottom: 20px;
+}
+.profile strong {
+    color: #777777;
+    display: block;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.profile_item:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+.profile label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #777777;
+}
+.profile input[type="text"] ,
+.profile input[type="password"] {
+    display: block;
+    width: calc(100% - 16px);
+    border: 1px solid #95979c;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 32px;
+    padding: 0 8px;
+}
+.profile input[type="text"]:focus ,
+.profile input[type="password"]:focus {
+    outline: none;
+    border: 1px solid #ff9a21;
+}
+.profile input[type="button"] {
+    width: 30%;
+    background: #ff9a21;
+    height: 36px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.profile input[type="button"]:hover,
+.profile input[type="button"]:focus {
+    background: #141414;
+}
+
+/* Блок редактирования IP и Имени ключа */
+.edit_ip, .edit_name, .bk_view {
+    text-decoration: none;
+    cursor: pointer;
+}
+.edit_ip:hover, .edit_name:hover, .bk_view:hover {
+    color: #ff9a21;
+}
+/* E.I. Дополнительные классы для страницы "Финансы" */
+.error_msg, .payment_msg {
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+}
+
+.payment_msg {
+    font-size: 16px;
+    margin-left: 20%;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.hide {
+    display: none;    
+}
+
+.show {
+    display: block;
+}
+/* E.I. Подключаем шоифт Рубля для страницы финансов и др. */
+/*
+@font-face { 
+    font-family: "rouble";
+    src: url("../webfonts/rouble.otf") format("opentype");
+}
+.rub { font-family: "rouble"; }
+*/
+.rub {
+  font-family: verdana;
+  color: gray;
+  margin-top: 3px;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+  line-height: 5px;
+  display: inline-block;
+  width: 0.4em;
+}
+/* E.I. Стиль для загруженных картинок для ответов на странице "Поддержка" */
+.uploaded_pic {
+    max-width: 95%;
+    padding: 20px 0;
+}
+/* E.I. Loding indicator */
+.load_page {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center; 
+}
+.load_page img{
+    position: relative;
+}
+.hidescreen {
+    position: fixed;
+    display: block;
+}
+.hidescreen {
+    z-index: 9998;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.6;
+    left:0;
+    top:0;
+}
+/* E.I. Link to HELP on all pages, style for Tips on click */
+.site_info {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.7;
+    padding: 30px;
+}
+.question_help {
+    width: 20px;
+    margin: 0 0 -5px 9px;
+    cursor: pointer;
+}
+.hint {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    display: none;
+    padding: 16px 20px;
+    position: absolute;
+    max-width: 450px;
+    z-index: 1111;
+    line-height: 1.4;
+}
+.hint .hint-caption {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff9a21;
+}
+.hint .prm-cross {
+    background: no-repeat scroll right top rgba(0, 0, 0, 0);
+    cursor: pointer;
+    float: right;
+    height: 20px;
+    width: 16px;
+    top: -12px;
+    right: -16px;
+    padding-left: 6px;
+    position: relative;
+}
+/* E.I VK button */
+.vk_support {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: transparent;
+    z-index: 999;    
+}
+.vk_hint {
+    background-color: #fff;
+    border: 1px solid orange;
+    border-radius: 10px;
+    display: none;
+    padding: 7px 10px;
+    position: absolute;
+    width: 290px;
+    z-index: 1000;
+    line-height: 1.4;
+    font-size: 14px;
+    opacity: 0.8;
+    text-align: left;
+}
+/* E.I. Проверка прокси - страница templ_panel_pv */
+.proxy_wall {
+    margin: 20px 35px 0 30px;    
+}
+.proxy_wall h6 {
+    font-weight: bold;
+    padding-left: 7px;
+}
+.proxy_parms {
+    padding-left: 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.proxy_parms input {
+    margin-right: 8px;
+    width: 10%;
+}
+.proxy_parms .btn {
+    width: 150px; 
+    height: 30px;
+    cursor: pointer;
+    text-transform: uppercase;    
+    color: #fff;
+    background: #ff9a21;
+    padding: 0;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #ff9a21;
+    margin: 15px 0;
+}
+/* E.I. Agreement modal window */
+.agree {
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.agree tr {
+    height: 32px;
+    border-bottom: 1px solid black;
+}
+.agree tr td:nth-child(odd) {
+    padding-top: 5px;
+    padding-left: 50px;
+    border-right: 1px solid black;
+}
+.agree tr td:nth-child(even) {
+    text-align: center;
+} 
+.agree tr:first-child td {
+    text-align: center;
+    padding-left: 0;
+    width: 50%;
+}
+/* E.I. Sales page padding: 0 25px;*/
+.column-1 {
+    width: 99%;
+}
+.column-1 .tab_api_key {
+    margin-bottom: -30px;
+}
+.column-1 .data_table tr td:last-child {
+    padding: 10px 0;
+}
+.form_sales {
+    text-align: center;
+}
+.form_sales .btn_sales {
+    color: #ffffff;
+    background: #ff9a21;
+    padding: 2px 35px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #ff9a21;
+    white-space: nowrap;
+    cursor: pointer;    
+}
+.form_sales .active_coupon {
+    margin-left: 10px;
+    color: darkorange;
+    font-weight: bold;
+}
+.form_sales .used_coupon {
+    margin-left: 10px;
+}
+.sale_note {
+    padding: 0 0 8px 33px;
+    font-weight: bold;
+    color: #ff9a21;
+}

@@ -1,0 +1,39 @@
+.l{
+    margin-bottom: 25px;
+}
+.tra{
+    margin-bottom: 5px; padding-top: 10px
+}
+#con{
+    margin-bottom: 0
+}
+#con1{
+    margin-top: 30px
+}
+#box{
+    margin-bottom: 40px
+}
+#con2{
+    margin-bottom: 22px;
+}
+.bk1{
+    font-size: 15px; color: #363636;
+}
+.all{
+    font-weight: bold;
+}
+#res{
+    left: 345px;
+}
+#pr{
+    margin-right: 4px
+}
+#h{
+    height: 170px;
+    max-width: 100%;
+    padding: 0px;
+}
+#he{
+    max-width: 100%;
+    padding: 0px;
+}
