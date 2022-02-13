@@ -9,13 +9,14 @@ import "../css/css.js"
 
 const Panel = observer(() => {
 
-    const [CreateGraphVisible,setCreateGraphVisible] = useState(true)
+    const [ModalVk,setModalVk] = useState(true)
     useFavicon('https://germes.bet/personal/assets/images/favicon.png')
     useTitle('Germes - Личный кабинет')
     return (
         <Container id="he"> 
            <Header/>
-           <Attention show={CreateGraphVisible} onHide={()=> setCreateGraphVisible(false)}/>
+           <Attention show={ModalVk} onHide={()=> setModalVk(false)}/>
+           <LeftMenu/>
            <div class="content_admin">
            <div class="content_wall" id="con2">
             <div class="tab_api_key">
@@ -28,7 +29,7 @@ const Panel = observer(() => {
                 <option value="55">1xstavka</option>
                 <option value="42">Bet365</option>
                 <option value="1000">BetBoom</option>
-                <option value="17">BetFair_Birzha</option>
+                <option value="17">Betbiir_Birzha</option>
                 <option value="62">BetOnline</option>
                 <option value="9">FonBet</option>
                 <option value="21">liga stavok</option>
@@ -101,8 +102,8 @@ const Panel = observer(() => {
                     <div class="filtr_item" id="blok_date_key">
                         <label for="date_key">Дата покупки</label>
                         <input type="text" id="date_key" name="date_key" class="inp_style_tab" value="" />
-                            &nbsp;&nbsp;<i class="far fa-check apply" title="Применить"></i>
-                            &nbsp;&nbsp;<i class="far fa-times clear" title="Очистить календарь"></i>
+                            &nbsp;&nbsp;<button class="but"><i class="bi bi-check-lg" title="Применить"></i></button>
+                            &nbsp;&nbsp;<button class="but"><i class="bi bi-x-lg" title="Очистить календарь"></i></button>
                     </div>
                 </div>
             </div>
@@ -128,7 +129,7 @@ const Panel = observer(() => {
                         <span id="ajax_msg" class="ajax_error"></span>
                     </div>
                     <div class="refresh" id="res" title="Перегрузить" >
-                        <a class="inp_style_tab"><i class="far fa-sync"></i></a>
+                    <button class="but"><i class="bi bi-arrow-repeat"></i></button>
                     </div>
                 </div>
                 <span class="bk_note">

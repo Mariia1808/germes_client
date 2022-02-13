@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
-
+import "../css/css.js"
 
 
 const Attention= ({show, onHide}) => {
@@ -12,8 +12,8 @@ const Attention= ({show, onHide}) => {
         show={show}
         onHide={onHide}
         aria-labelledby="contained-modal-title-vcenter"
-        centered contentClassName="pr">
-        <Container className="form">
+        centered contentClassName="">
+        <Container>
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
                Внимание
@@ -27,8 +27,8 @@ const Attention= ({show, onHide}) => {
         <br/>Сделать это Вы можете в любое время на странице "Настройки профиля".
         </Modal.Body>
         <Modal.Footer>
-            <Button className="recbut" onHide={onHide}>Сделать позже</Button>
-            <Button className="recbut">Привязать сейчас</Button>
+            <button className="remodal-cancel" onHide={onHide}>Сделать позже</button>
+            <button className="remodal-confirm"  id="confirm_warn">Привязать сейчас</button>
         </Modal.Footer>
         </Container></Modal>
     );

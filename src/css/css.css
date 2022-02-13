@@ -24,6 +24,7 @@
 }
 #res{
     left: 345px;
+    top: -2px;
 }
 #pr{
     margin-right: 4px
@@ -36,4 +37,19 @@
 #he{
     max-width: 100%;
     padding: 0px;
+}
+.cl{
+    border: none;
+    background: none;
+    left: 217px;
+}
+.but{
+    border: 1px solid #afb8bd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #666666;
+    outline: none;
+    background: none;
+    font-size: 17px;
+    transition: all 0.5s;
 }
