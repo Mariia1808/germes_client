@@ -6,6 +6,10 @@ import Panel from '../pages/Panel';
 import Profile from '../pages/Profile';
 import Registration from '../pages/Registration';
 import Password from '../pages/Password';
+import Reviews from '../pages/Reviews';
+import Acts from '../pages/Acts';
+import BuyBot from '../pages/BuyBot';
+import BuyHard from '../pages/BuyHard';
 
 const AppRouter = () => {
         return (
@@ -16,6 +20,10 @@ const AppRouter = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/forget_password" element={<Password />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/acts" element={<Acts />} />
+            <Route path="/buybot" element={<BuyBot />} />
+            <Route path="/buyhand" element={<BuyHard />} />
         </Routes>
         );
     

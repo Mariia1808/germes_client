@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import "../css/css.js"
 import Header from '../components/Header';
+import FinanceTable from '../components/FinanceTable.js';
 
 
 const Finance = () => {
+    const [table, setTable] = useState('')
         return (
             <Container id="he">
                  <Header/>
                 <div class="content_admin">
-                <input type="hidden" id="payment_message" value="" />
-        <input type="hidden" id="operation" value="all" />
-        <div class="box finance nowrap">
-            <div class="column-2-fin">
-                <h3>Доступные средства</h3>
+                    <input type="hidden" id="payment_message" value="" />
+                    <input type="hidden" id="operation" value="all" />
+                    <div class="box finance nowrap">
+                    <div class="column-2-fin">
+                    <h3>Доступные средства</h3>
                 <div class="column-3-fin no-background attachment">
                     <div class="text">
                         <span>Баланс</span>
@@ -101,11 +103,11 @@ const Finance = () => {
                 <div class="head_table">
                     <div class="tabs">
                         <ul>
-                            <li><a href="https://germes.bet/personal/panel/finance/all" target="_self" id="all" class="">Все операции</a></li>
-                            <li><a href="https://germes.bet/personal/panel/finance/add" target="_self" id="add" class="">Пополнения</a></li>
-							<li><a href="https://germes.bet/personal/panel/finance/qiwi" target="_self" id="qiwi" class="">История (QIWI)</a></li>
-                            <li><a href="https://germes.bet/personal/panel/finance/p" target="_self" id="p" class="">Партнерка</a></li>
-                            <li><a href="https://germes.bet/personal/panel/finance/off" target="_self" id="off" class="">Списания</a></li>
+                            <li><Button onClick={()=>setTable(1)} target="_self" id="all" class="">Все операции</Button></li>
+                            <li><Button onClick={()=>setTable(2)} target="_self" id="add" class="">Пополнения</Button></li>
+							<li><Button onClick={()=>setTable(3)} target="_self" id="qiwi" class="">История (QIWI)</Button></li>
+                            <li><Button onClick={()=>setTable(4)} target="_self" id="p" class="">Партнерка</Button></li>
+                            <li><Button onClick={()=>setTable(5)} target="_self" id="off" class="">Списания</Button></li>
                         </ul>
                     </div>
                     <div class="search">
@@ -113,12 +115,12 @@ const Finance = () => {
                         <input class="inp_style_tab" id="date_key"  type="text" name="search" autocomplete="off" />
                     </div>
                     <div class="clear_form" title="Очистить все поля формы"><a class="inp_style_tab"><i class="fal fa-times"></i></a></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <form id="finance">
-        <div class="content_wall" id="tabs_key" id="con1">
-            <div class="tab_api_key active">
+            <form id="finance">
+                <div class="content_wall" id="tabs_key" id="con1">
+                <div class="tab_api_key active">
                 <h3>Все операции</h3>
                 <div class="head_tab">
                     <div class="show">
@@ -134,27 +136,12 @@ const Finance = () => {
                         <a class="inp_style_tab"><i class="far fa-sync"></i></a>
                     </div>
                 </div>
-                
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Дата</th>
-                            <th>Сумма</th>
-                            <th>Источник</th>
-                            <th>Детали</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr><td colspan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
-                    </tbody>
-                </table>
-                
+                <FinanceTable number={table}/>
             </div>
-            
             <div class="paging">
-<br /><div class='page_info'>
-Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
-</div>
+            <br /><div class='page_info'>
+            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+            </div>
         
             </div>
         </div>            

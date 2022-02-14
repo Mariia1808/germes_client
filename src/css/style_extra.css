@@ -55,7 +55,7 @@ h3 {
 
 .bubble {
     min-height: 30px;
-    max-width: 55%;
+    /* max-width: 55%; */
     position: relative;
     left: -20px;
     margin-left: 5%;

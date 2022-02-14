@@ -10,13 +10,10 @@ import "../css/css.js"
 const Panel = observer(() => {
 
     const [ModalVk,setModalVk] = useState(true)
-    useFavicon('https://germes.bet/personal/assets/images/favicon.png')
-    useTitle('Germes - Личный кабинет')
     return (
         <Container id="he"> 
            <Header/>
            <Attention show={ModalVk} onHide={()=> setModalVk(false)}/>
-           <LeftMenu/>
            <div class="content_admin">
            <div class="content_wall" id="con2">
             <div class="tab_api_key">

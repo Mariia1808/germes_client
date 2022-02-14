@@ -25,7 +25,7 @@ const LeftMenu = ({show, onHide}) => {
                     <li id="sales"><a class="menu-not-active" href="#"><span><i class="bi bi-ticket-detailed"></i></span>Купоны на скидку</a></li>
                     <li id="reviews"><a class="menu-active" href="/reviews"><span><i class="bi bi-pencil"></i></span>Отзывы</a></li>
                     <li id="proxy"><a class="menu-not-active" href="#"><span><i class="bi bi-plug"></i></span>Прокси</a></li>
-                    <li id="vds"><a class="menu"  href="#"><span><i class="bi bi-server"></i></span>VDS</a></li>
+                    <li id="vds"><a class="menu-not-active"  href="#"><span><i class="bi bi-server"></i></span>VDS</a></li>
                     <li id="img"><a class="menu-not-active"  href="#"><span><i class="bi bi-camera"></i></span>Очистка фото</a></li>
                     <li id="wiki"><a class="menu-active" href="https://germes.bet/wiki/" target="_blank"><span><i class="bi bi-book"></i></span>Мануал</a></li>
                 </ul></div>
