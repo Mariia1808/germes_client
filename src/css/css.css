@@ -37,6 +37,7 @@
 #he{
     max-width: 100%;
     padding: 0px;
+    position: relative;
 }
 .cl{
     border: none;
@@ -77,4 +78,32 @@
     border: 1px solid #d3d3d3;
     border-radius: 5px;
     margin-bottom: 80px;
+}
+#rules_popup{
+    color: #ff9a21; 
+    font-weight: 600;
+}
+#s{
+    padding-bottom: 0;
+}
+#e{
+    float: right;
+}
+#g{
+    font-weight: bold;
+}
+#rel{
+    position: relative;
+}
+#q{
+    margin-top: 0;
+}
+#k{
+    margin-bottom: 24px
+}
+#g1{
+    line-height: 1.6; 
+}
+#d{
+    text-align: center;
 }

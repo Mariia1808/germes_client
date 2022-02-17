@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Container, Form, Card, Button, Row } from "react-bootstrap";
-import { observer } from 'mobx-react-lite';
-import {useFavicon, useTitle} from 'react-use'; 
+import React from 'react';
+import { Container } from "react-bootstrap";
+import { observer } from 'mobx-react-lite'; 
 import "../css/css.js"
 import Header from '../components/Header';
 import ReviewList from '../components/ReviewList';
@@ -12,15 +11,15 @@ const Reviews = observer(() => {
    
         return (
         <Container id="he"> 
-           <Header/>
-           <div class="content_wall">
+            
+           <div className="content_wall">
             <form id="reviews_vk_form">
-            <div class="tab_api_key reviews_vk">
+            <div className="tab_api_key reviews_vk">
                 <h6>Отзывы пользователей</h6>  
-                <div class="head_tab">
-                    <div class="show">
+                <div className="head_tab">
+                    <div className="show">
                         <label>Показывать</label>
-                        <select id="record_on_page" name="record_on_page" class="inp_style_tab">              
+                        <select id="record_on_page" name="record_on_page" className="inp_style_tab">              
                             <option value="5">5</option>
                             <option value="10" selected>10</option>
                             <option value="15">15</option>
@@ -31,20 +30,20 @@ const Reviews = observer(() => {
                 </div>
                 <ReviewList/>
             
-            <div class="paging">
-                <div class="pag">
-                <button class="page_button" name="page_navigator[0]" disabled>&lt; Пред</button>
+            <div className="paging">
+                <div className="pag">
+                <button className="page_button" name="page_navigator[0]" disabled>&lt; Пред</button>
                 <b>&nbsp;1&nbsp;</b>
-                <input type='submit' class='page_button_small' value='2' name='page_navigator[2]' class='small_button' />
-                <input type='submit' class='page_button_small' value='3' name='page_navigator[3]' class='small_button' />
-                <input type='submit' class='page_button_small' value='4' name='page_navigator[4]' class='small_button' />
-                <input type='submit' class='page_button_small' value='5' name='page_navigator[5]' class='small_button' />
+                <input type='submit' className='page_button_small' value='2' name='page_navigator[2]' className='small_button' />
+                <input type='submit' className='page_button_small' value='3' name='page_navigator[3]' className='small_button' />
+                <input type='submit' className='page_button_small' value='4' name='page_navigator[4]' className='small_button' />
+                <input type='submit' className='page_button_small' value='5' name='page_navigator[5]' className='small_button' />
                 </div>
-                <button class="page_button"name="page_navigator[2]" >&nbsp;След &gt;</button>
+                <button className="page_button"name="page_navigator[2]" >&nbsp;След &gt;</button>
             </div></div>
             <input type='hidden' value='1' name='current_page' />
             <br />
-            <div class='page_info'>
+            <div className='page_info'>
                 Страница 1 из 5. Записи от 1 до 10. Всего записей: 50.
             </div>
             </form>           

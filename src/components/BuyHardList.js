@@ -5,7 +5,7 @@ import BuyHardItem from './BuyHardItem.js';
 
 const BuyHardList = () => {
         return (
-            <div class="box-buybot price_page">
+            <div className="box-buybot price_page">
                 <BuyHardItem/>
             </div>
         );

@@ -1,37 +1,53 @@
 import React from 'react';
+import { ACTS_ROUTE } from '../utils/consts';
 import { Button, Card, Container, Modal } from 'react-bootstrap';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import "../css/css.js"
 
 
-const LeftMenu = ({show, onHide}) => {
+const LeftMenu = observer(({show, onHide}) => {
+    const history = useNavigate()
         return (
             <Modal 
             show={show}
             onHide={onHide}
             contentClassName="leftmenu"
             >
-                <div  class="left_panel_admin">
-                <div class="logotype">
-                    <button class="cl" id="left_panel_close" onClick={()=> onHide(false)}><i class="bi bi-x-lg"></i></button>
-                    <a href="https://germes.bet/personal/panel"><img src="https://germes.bet/personal/assets/images/logo_germes-09.png" alt="Germes" /></a>
+                <div  className="left_panel_admin">
+                    <div className="logotype">
+                        <button className="cl" id="left_panel_close" onClick={()=> onHide(false)}><i className="bi bi-x-lg"></i></button>
+                        <a href="https://germes.bet/personal/panel"><img src="https://germes.bet/personal/assets/images/logo_germes-09.png" alt="Germes" /></a>
+                    </div>
+                        <ul className="menu">
+                            <li id="acts"><Button className="menu-active" href="/acts"><span><i className="bi bi-house-door"></i></span>Акции</Button></li>
+                            <li id="apikeys"><Button className="menu-active" href="/panel"><span><i className="bi bi-key"></i></span>Мои подписки</Button></li>
+                            <li id="stats"><Button className="menu-active" href="/stats"><span><i className="bi bi-graph-up-arrow"></i></span>Статистика</Button></li>
+                            <li id="finance"><Button className="menu-active" href="/finance"><span><i className="bi bi-bank"></i></span>Финансы</Button></li>
+                            <li id="partnership"><Button className="menu-active" href="/partnership"><span><i className="bi bi-hand-thumbs-up-fill"></i></span>Партнерка</Button></li>
+                            <li id="set_bk"><Button className="menu-active" href="#"><span><i className="bi bi-gear"></i></span>Настройки</Button></li>
+                            <li id="sales"><Button className="menu-active" href="/sales"><span><i className="bi bi-ticket-detailed"></i></span>Купоны на скидку</Button></li>
+                            <li id="reviews"><Button className="menu-active" href="/reviews"><span><i className="bi bi-pencil"></i></span>Отзывы</Button></li>
+                            <li id="proxy"><Button className="menu-active" href="/proxy"><span><i className="bi bi-plug"></i></span>Прокси</Button></li>
+                            <li id="vds"><Button className="menu-active"  href="/vds"><span><i className="bi bi-server"></i></span>VDS</Button></li>
+                            <li id="img"><Button className="menu-active"  href="/img"><span><i className="bi bi-camera"></i></span>Очистка фото</Button></li>
+                            <li id="wiki"><Button className="menu-active" href="https://germes.bet/wiki/" target="_blank"><span><i className="bi bi-book"></i></span>Мануал</Button></li>
+                        </ul>
+                    <div className="info_balance_user">
+                        <h1>Статистика</h1>
+                        <div className="static_item">
+                            <div className="static_icon white"><i className="fas fa-desktop"></i></div>
+                            <div className="static_text">
+                                <h2>Всего активных</h2>
+                                <p>Подписок</p>
+                                <span>5</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="menu">
-                    <li id="acts"><a class="menu-active" href="/acts"><span><i class="bi bi-house-door"></i></span>Акции</a></li>
-                    <li id="apikeys"><a class="menu-active" href="/panel"><span><i class="bi bi-key"></i></span>Мои подписки</a></li>
-                    <li id="stats"><a class="menu-not-active" href="#"><span><i class="bi bi-graph-up-arrow"></i></span>Статистика</a></li>
-                    <li id="finance"><a class="menu-active" href="/finance"><span><i class="bi bi-bank"></i></span>Финансы</a></li>
-                    <li id="partnership"><a class="menu-not-active" href="#"><span><i class="bi bi-hand-thumbs-up-fill"></i></span>Партнерка</a></li>
-                    <li id="set_bk"><a class="menu-not-active" href="#"><span><i class="bi bi-gear"></i></span>Настройки</a></li>
-                    <li id="sales"><a class="menu-not-active" href="#"><span><i class="bi bi-ticket-detailed"></i></span>Купоны на скидку</a></li>
-                    <li id="reviews"><a class="menu-active" href="/reviews"><span><i class="bi bi-pencil"></i></span>Отзывы</a></li>
-                    <li id="proxy"><a class="menu-not-active" href="#"><span><i class="bi bi-plug"></i></span>Прокси</a></li>
-                    <li id="vds"><a class="menu-not-active"  href="#"><span><i class="bi bi-server"></i></span>VDS</a></li>
-                    <li id="img"><a class="menu-not-active"  href="#"><span><i class="bi bi-camera"></i></span>Очистка фото</a></li>
-                    <li id="wiki"><a class="menu-active" href="https://germes.bet/wiki/" target="_blank"><span><i class="bi bi-book"></i></span>Мануал</a></li>
-                </ul></div>
             </Modal>
         );
     
-};
+});
 
 export default LeftMenu;

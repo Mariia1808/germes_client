@@ -1,3 +1,16 @@
 export const LOGIN_ROUTE = '/login'
 export const REGISTRATION_ROUTE = '/registration'
 export const PASSWORD_ROUTE = '/forget_password'
+export const PANEL_ROUTE = "/panel"
+export const PROFILE_ROUTE = "/profile"
+export const FINANCE_ROUTE = "/finance"
+export const REVIEWS_ROUTE = "/reviews"
+export const ACTS_ROUTE = "/acts" 
+export const BUYBOT_ROUTE = "/buybot"
+export const BUYHAND_ROUTE = "/buyhand"
+export const PARTNERSHIP_ROUTE = "/partnership"
+export const VDS_ROUTE = "/vds"
+export const SALES_ROUTE = "/sales"
+export const PROXY_ROUTE = "/proxy"
+export const STATS_ROUTE = "/stats"
+export const IMG_ROUTE = "/img"

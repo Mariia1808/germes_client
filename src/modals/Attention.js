@@ -27,8 +27,8 @@ const Attention= ({show, onHide}) => {
         <br/>Сделать это Вы можете в любое время на странице "Настройки профиля".
         </Modal.Body>
         <Modal.Footer>
-            <button className="remodal-cancel" onHide={onHide}>Сделать позже</button>
-            <button className="remodal-confirm"  id="confirm_warn">Привязать сейчас</button>
+            <Button className="remodal-cancel" onHide={onHide}>Сделать позже</Button>
+            <Button className="remodal-confirm"  id="confirm_warn">Привязать сейчас</Button>
         </Modal.Footer>
         </Container></Modal>
     );

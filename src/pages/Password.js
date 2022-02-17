@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Form, Card, Button, Row } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE } from "../utils/consts";
 import { observer } from 'mobx-react-lite';
 import {useFavicon, useTitle} from 'react-use'; 
 import "../css/css.js"
@@ -14,30 +14,30 @@ const Auth = observer(() => {
 
             return (
         <Container> 
-            <div class="content">
-            <div id="forgot_pass" class="cont_auth active">
-        <div class="logotype">
+            <div className="content">
+            <div id="forgot_pass" className="cont_auth active">
+        <div className="logotype">
             <img src="https://germes.bet/personal/assets/images/logo_germes-14.png" alt="Germes" />
         </div>
-        <div class="form_auth">
+        <div className="form_auth">
             <form action="/" method="post" id="form_frg">
-                <div class="form_item">
+                <div className="form_item">
                     <label for="forgot_email">Введите e-mail</label>
                     <input type="text" id="forgot_email" name="forgot_email" 
-                    value={email} onChange={e => setEmail(e.target.value)} class="dark_line_input" autocomplete="off" />
-                    <span class="focus-border"></span>
+                    value={email} onChange={e => setEmail(e.target.value)} className="dark_line_input" autocomplete="off" />
+                    <span className="focus-border"></span>
                 </div>
-                <div class="text_send">
-                    <p>Сообщение отправлено, перейдите на ваш e-email адрес, для подтверждения. Затем вы можете <a class="login_btn">авторизоваться</a> на нашем сайте</p>
+                <div className="text_send">
+                    <p>Сообщение отправлено, перейдите на ваш e-email адрес, для подтверждения. Затем вы можете <a className="login_btn">авторизоваться</a> на нашем сайте</p>
                 </div>
-                <div class="form_item bt_login">
+                <div className="form_item bt_login">
                     <input type="hidden" name="method" value="restore" />
-                    <input type="button" id="pass_restore" class="signup_btn" value="Восстановить" />
+                    <input type="button" id="pass_restore" className="signup_btn" value="Восстановить" />
                 </div>
             </form>
         </div>
-        <div id="error_msg_forgot" class="error_login">&nbsp;</div>
-        <strong>Вспомнили пароль? <NavLink to={LOGIN_ROUTE} class="login_btn">Войти</NavLink></strong>
+        <div id="error_msg_forgot" className="error_login">&nbsp;</div>
+        <strong>Вспомнили пароль? <NavLink to={LOGIN_ROUTE} className="login_btn">Войти</NavLink></strong>
         </div>
             </div>
         </Container>

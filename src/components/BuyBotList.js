@@ -6,7 +6,7 @@ import BuyBotItem from './BuyBotItem.js';
 const BuyBotList = () => {
         return (
             <Container>
-               <div class="box-buybot price_page">
+               <div className="box-buybot price_page">
                    <BuyBotItem/>
                </div>
             </Container>

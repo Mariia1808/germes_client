@@ -1,7 +1,5 @@
-import React, {useContext, useEffect} from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
-import { Row } from "react-bootstrap";
-import {Context} from "../index";
 import "../css/css.js"
 import ReviewItem from "./ReviewItem";
 
