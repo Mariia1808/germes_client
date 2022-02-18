@@ -4,10 +4,12 @@ import "../css/css.js"
 import Header from '../components/Header';
 import FinanceTable from '../components/FinanceTable.js';
 import { observer } from 'mobx-react-lite';
+import OperationBalance from '../components/OperationBalance.js';
 
 
 const Finance = observer(() => {
     const [table, setTable] = useState('')
+    const [operation, setOperation] = useState('')
         return (
             <Container id="he">
                   
@@ -39,62 +41,18 @@ const Finance = observer(() => {
             </div>
             <div className="column-2-fin">
                 <div className="operacy">
-                    <h3>Операции с балансом</h3>
+                    <h3>Операции с балансом</h3> <div className="close"><button className='btnclose' onClick={()=>setOperation(0) }><i className="bi bi-x-lg"></i></button></div>
                      <div className="column-3-fin no-background attachment">
-                         <a href="#" className="btn_middle show_block" data-name="balance_block">Пополнить баланс</a>
+                         <Button onClick={()=>setOperation(1)} className="btn_middle show_block" data-name="balance_block">Пополнить баланс</Button>
                      </div>
                     <div className="column-3-fin no-background attachment">
-                         <a href="#" className="btn_middle show_block" data-name="partner_block">Перевести средства</a>
+                         <Button onClick={()=>setOperation(2)}className="btn_middle show_block" data-name="partner_block">Перевести средства</Button>
                     </div>
                     <div className="column-3-fin no-background attachment" >
-                        <a href="#" className="btn_middle show_block" data-name="withdraw_block">Вывести средства</a>
+                        <Button onClick={()=>setOperation(3)} className="btn_middle show_block" data-name="withdraw_block">Вывести средства</Button>
                     </div>
-                    <div className="box-balance" id="balance_block">
-
-                    <div className="close"><a><i className="fal fa-times"></i></a></div>
-                    <form id="qiwi_payment" className="form_input" method="post" action="" enctype="utf-8">
-                        <label for="balance">Введите сумму платежа QIWI</label>
-                        <input id="qiwi_balance_add" name="sum" type="number" className="text_input" placeholder="введите сумму" value="" />
-                        <input type="button" id="submit_qiwi_balance_add" name="submit_qiwi_balance_add" value="оплатить" />
-                    </form>
-                    </div>
-                    <div className="box-balance" id="partner_block">
-                        <div className="close"><a><i className="fal fa-times"></i></a></div>
-                        <div className="form_input"> 
-                            <label for="partner">Введите сумму перевода</label>
-                            <p>Перевод с партнерского счета на баланс</p>
-                            <p></p> 
-                            <input id="partner_money" type="number" className="input_max" placeholder="введите сумму" />
-                            <input type="button" id="transfer_money" value="перевести" />
-                        </div>
-                    </div>
-                    <div className="box-balance" id="withdraw_block">
-                        <div className="close"><a><i className="fal fa-times"></i></a></div>
-                        <div className="form_input"> 
-                            <h3>Выберите систему для вывода</h3>
-                            <p>Вывод на карту осуществляется с комиссией + 3%</p>
-                            <div className="bank_system">
-                                <div className="column-4-fin">
-                                    <label><input type="radio" className="wallet" name="bank_select" value="qiwi" checked="true" /><span id="add_qiwi"></span></label>
-                                </div>
-                                <div className="column-4-fin">
-                                    <label><input type="radio" className="wallet" name="bank_select" value="neteller" /><span id="neteller"></span></label>
-                                </div>
-                                <div className="column-4-fin">
-                                    <label><input type="radio" className="wallet" name="bank_select" value="scrill" /><span id="scrill"></span></label>
-                                </div>
-                                <div className="column-4-fin">
-                                    <label><input type="radio" className="wallet" name="bank_select" value="visa" /><span id="visa"></span></label>
-                                </div>
-                            </div>
-                            <label className='l' for="wallet_num">Введите номер кошелька / карты</label>
-                            <input id="wallet_num" type="text" placeholder="введите номер кошелька / карты" maxlength="20" />
-                            <label for="transfer_sum" className='tra'>Введите сумму вывода<span className="note">(мин. 2000<i className="far fa-ruble-sign"></i>)</span></label>
-                            <input id="transfer_sum" type="number" name="amount" className="input_max" placeholder="введите сумму" />
-                            <input type="button" id="transfer_to_wallet" name="transfer_to_wallet" value="вывести" />
-                            <input  type="hidden" id="amount_min" name="amount_min" value="2000" />
-                        </div>
-                    </div>
+                    
+                    <OperationBalance operation={operation}/>
                 </div>
             </div>
         </div>
@@ -104,11 +62,11 @@ const Finance = observer(() => {
                 <div className="head_table">
                     <div className="tabs">
                         <ul>
-                            <li><Button onClick={()=>setTable(1)} target="_self" id="all" className="">Все операции</Button></li>
-                            <li><Button onClick={()=>setTable(2)} target="_self" id="add" className="">Пополнения</Button></li>
-							<li><Button onClick={()=>setTable(3)} target="_self" id="qiwi" className="">История (QIWI)</Button></li>
-                            <li><Button onClick={()=>setTable(4)} target="_self" id="p" className="">Партнерка</Button></li>
-                            <li><Button onClick={()=>setTable(5)} target="_self" id="off" className="">Списания</Button></li>
+                            <li><Button onClick={()=>setTable(1)} target="_self" className="btnclass">Все операции</Button></li>
+                            <li><Button onClick={()=>setTable(2)} target="_self" className="btnclass">Пополнения</Button></li>
+							<li><Button onClick={()=>setTable(3)} target="_self" className="btnclass">История (QIWI)</Button></li>
+                            <li><Button onClick={()=>setTable(4)} target="_self" className="btnclass">Партнерка</Button></li>
+                            <li><Button onClick={()=>setTable(5)} target="_self" className="btnclass">Списания</Button></li>
                         </ul>
                     </div>
                     <div className="search">

@@ -1,4 +1,4 @@
-import { ACTS_ROUTE, BUYBOT_ROUTE, BUYHAND_ROUTE, FINANCE_ROUTE, IMG_ROUTE, LOGIN_ROUTE, PANEL_ROUTE, PARTNERSHIP_ROUTE, PASSWORD_ROUTE, PROFILE_ROUTE, PROXY_ROUTE, REGISTRATION_ROUTE, REVIEWS_ROUTE, SALES_ROUTE, STATS_ROUTE, VDS_ROUTE } from './utils/consts';
+import { ACTS_ROUTE, BUYBOT_ROUTE, BUYHAND_ROUTE, CREATEPROFIL_ROUTE, FINANCE_ROUTE, FIVESTEP_ROUTE, FOURSTEP_ROUTE, IMG_ROUTE, LOGIN_ROUTE, ONESTEP_ROUTE, PANEL_ROUTE, PARTNERSHIP_ROUTE, PASSWORD_ROUTE, PROFILE_ROUTE, PROXY_ROUTE, REGISTRATION_ROUTE, REVIEWS_ROUTE, SALES_ROUTE, STATS_ROUTE, THREESTEP_ROUTE, TWOSTEP_ROUTE, VDS_ROUTE } from './utils/consts';
 import Auth from './pages/Auth';
 import Registration from './pages/Registration';
 import Password from './pages/Password';
@@ -15,6 +15,12 @@ import Sales from './pages/Sales';
 import Proxy from './pages/Proxy';
 import Stats from './pages/Stats';
 import Img from './pages/Img';
+import CreateProfil from './pages/CreateProfil';
+import OneStep from './components/OneStep';
+import TwoStep from './components/TwoStep';
+import ThreeStep from './components/ThreeStep';
+import FourStep from './components/FourStep';
+import FiveStep from './components/FiveStep';
 
 export const authRoutes = [
         
@@ -85,5 +91,29 @@ export const publicRoutes = [
     {
         path: IMG_ROUTE,
         Component: Img
+    },
+    {
+        path: CREATEPROFIL_ROUTE,
+        Component: CreateProfil
+    },
+    {
+        path: ONESTEP_ROUTE,
+        Component: OneStep
+    },
+    {
+        path: TWOSTEP_ROUTE,
+        Component: TwoStep
+    },
+    {
+        path: THREESTEP_ROUTE,
+        Component: ThreeStep
+    },
+    {
+        path: FOURSTEP_ROUTE,
+        Component: FourStep
+    },
+    {
+        path: FIVESTEP_ROUTE,
+        Component: FiveStep
     }
 ]

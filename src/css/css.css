@@ -107,3 +107,61 @@
 #d{
     text-align: center;
 }
+.btn_middle:hover, .btn_middle:focus, #btn_middle:hover, #btn_middle:focus{
+    border: 1px solid #ff9a21;
+    color: #ff9a21;
+    background-color: white;
+    box-shadow: 0 0 0 0.2rem #ff9b216e;
+}
+.btn_middle:not(:disabled):not(.disabled):active{
+    color: #ff9a21;
+    background-color: #ffffff;
+    border-color: #ff9a21;
+    padding: 5px 5px;
+}
+.btn_middle{
+    background-color: #ffffff;
+    padding: 5px 5px;
+}
+.btnclass:hover, .btnclass:focus{
+    background-color: #ff9a21;
+    box-shadow: 0 0 0 0.2rem #ff9b216e;
+}
+.btnclose, .btnclose:active, .btnclose:hover .btnclose:focus, .btnclose:not(:disabled):not(.disabled):active{
+    border: 1px solid #afb8bd;
+    padding: 0px 0px;
+    border-radius: 5px;
+    color: #666666;
+    outline: none;
+    transition: all 0.5s;
+    background-color: #ffffff;
+}
+#btn_middle{
+    padding: 0px 0px;
+}
+.switch.btn-xs {
+    width: 20%;
+    border: 1px solid #ff9a21;
+}
+.switch-on.btn-xs {
+    background-color: #ff9a21;
+}
+.switch-handle {
+    padding: 0px 0px!important;
+    width: 25px!important;
+}
+.j{
+    width: 23%!important;
+}
+.k{
+    width: 33%!important;
+}
+.p{
+    width: 5%!important;
+}
+.d{
+    width: 16%!important;
+}
+.d1{
+    width: 38%!important;
+}
