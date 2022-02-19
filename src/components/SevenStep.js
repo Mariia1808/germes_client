@@ -44,13 +44,13 @@ const SevenStep = observer(()=>{
 
                 <label>Проставляем оба плеча</label>
                 <BootstrapSwitchButton checked={two} onChange={changeTwo} size="xs" onlabel='Да' offlabel='Нет' style="warning p" /><br/>
-                <BootstrapSwitchButton checked={matmodel} onChange={changeMatmodel} size="xs" onlabel='Крыть минусовые по мат.модели' offlabel='Ставим первое плечо даже в минус' style="warning p" /><br/>
+                <BootstrapSwitchButton checked={matmodel} onChange={changeMatmodel} size="xs" onlabel='Крыть минусовые по мат.модели' offlabel='Ставим первое плечо даже в минус' style="warning p1" /><br/>
                 
                 {(() => {
                     switch (two && matmodel) {
                     case (!two):
                             return <><label>Ставим первое плечо даже в минус, только если упал кэф на втором плече</label>
-                            <BootstrapSwitchButton checked={false} size="xs" onlabel='Крыть минусовые по мат.модели' offlabel='Ставим первое плечо даже в минус' style="warning p" /><br/>
+                            <BootstrapSwitchButton checked={false} size="xs" onlabel='Да' offlabel='Нет' style="warning p" /><br/>
                         </>
                     case true:
                         return <>
