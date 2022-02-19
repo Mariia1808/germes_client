@@ -26,10 +26,9 @@ const LeftMenu = observer(({show, onHide}) => {
                             <li id="finance"><Button className="menu-active" id='btn_middle' href="/finance"><span><i className="bi bi-bank"></i></span>Финансы</Button></li>
                             <li id="partnership"><Button className="menu-active" id='btn_middle' href="/partnership"><span><i className="bi bi-hand-thumbs-up-fill"></i></span>Партнерка</Button></li>
                             <li id="set_bk">
-                                <DropdownButton id="btn_middle" className="menu-active" title="Настройки профилей">
-                                    <span><i className="bi bi-gear"></i></span>
-                                    <Dropdown.Item href="/create_profil">Создать профиль</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Мои профили</Dropdown.Item>
+                                <DropdownButton id="btn_middle" className="menu-active" title={<i className='bi bi-gear'>Настройки профилей</i>}>
+                                    <Dropdown.Item id="btn_middle" className="menu-active" href="/create_profil">Создать профиль</Dropdown.Item>
+                                    <Dropdown.Item id="btn_middle" className="menu-active" href="#/action-2">Мои профили</Dropdown.Item>
                                 </DropdownButton>
                             </li>
                             <li id="sales"><Button className="menu-active" id='btn_middle' href="/sales"><span><i className="bi bi-ticket-detailed"></i></span>Купоны на скидку</Button></li>

@@ -90,7 +90,7 @@ const FiveStep = observer(()=>{
                 :
                 <></>}
 
-                <Button className='btn_middle' size="lg" href="/#">Далее</Button>
+                <Button className='btn_middle' size="lg" href="/six_step">Далее</Button>
                 <Button className='btn_middle' size="lg" href="/four_step">Назад</Button>
             </div>
         </Container>

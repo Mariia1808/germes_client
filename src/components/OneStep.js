@@ -9,7 +9,7 @@ const OneStep = observer(()=>{
             <div className='content_wall'>
                 <h4>ШАГ 1</h4><br/>
                 <h6>Введите название профиля</h6><br/>
-                <input type="text" name="ip" id="proxy_ip" placeholder="Например, фонбет-олимп" /><br/>
+                <input type="text" name="ip" id="proxy_ip" placeholder="Например, фонбет-олимп"/><br/>
                 <Button className='btn_middle' size="lg" href="/two_step">Далее</Button>
             </div>
         </Container>
