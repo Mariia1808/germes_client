@@ -2,7 +2,7 @@ import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import "../css/css.js"
+import "../../css/css.js"
 
 const FiveStep = observer(()=>{
 
@@ -14,9 +14,8 @@ const FiveStep = observer(()=>{
     return(
         <Container id="he">
             <div className="content_wall">
-                <h4>ШАГ 5</h4><br/>
-                <h5>Фильтры</h5><br/><br/>
-
+                <h4>ШАГ 5 из 7 - Фильтры</h4><br/>
+               
                 <h4>Ставок</h4><br/>
 
                 <label>Круглая Фора </label>

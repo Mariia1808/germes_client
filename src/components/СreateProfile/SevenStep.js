@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from "mobx-react-lite";
 import { Button, Container } from "react-bootstrap";
-import "../css/css.js"
+import "../../css/css.js"
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 
 const SevenStep = observer(()=>{
@@ -25,13 +25,11 @@ const SevenStep = observer(()=>{
     return(
         <Container id="he">
             <div className='content_wall'>
-                <h4>ШАГ 7</h4><br/>
-                <h6>Правила для пар БК</h6><br/>
+                <h4>ШАГ 7 из 7 - Правила для пар БК</h4><br/>
             
                 <label>Букмекер 1:</label>
                 <select>
                     <option>
-
                     </option>
                 </select>
 

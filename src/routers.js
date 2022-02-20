@@ -15,14 +15,15 @@ import Sales from './pages/Sales';
 import Proxy from './pages/Proxy';
 import Stats from './pages/Stats';
 import Img from './pages/Img';
+
 import CreateProfil from './pages/CreateProfil';
-import OneStep from './components/OneStep';
-import TwoStep from './components/TwoStep';
-import ThreeStep from './components/ThreeStep';
-import FourStep from './components/FourStep';
-import FiveStep from './components/FiveStep';
-import SixStep from './components/SixStep';
-import SevenStep from './components/SevenStep';
+import OneStep from './components/СreateProfile';
+import TwoStep from './components/СreateProfile/TwoStep';
+import ThreeStep from './components/СreateProfile/ThreeStep';
+import FourStep from './components/СreateProfile/FourStep';
+import FiveStep from './components/СreateProfile/FiveStep';
+import SixStep from './components/СreateProfile/SixStep';
+import SevenStep from './components/СreateProfile/SevenStep';
 
 export const authRoutes = [
         

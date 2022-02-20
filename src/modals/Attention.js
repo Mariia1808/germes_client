@@ -12,7 +12,7 @@ const Attention= ({show, onHide}) => {
         show={show}
         onHide={onHide}
         aria-labelledby="contained-modal-title-vcenter"
-        centered contentClassName="">
+        centered>
         <Container>
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
@@ -27,8 +27,8 @@ const Attention= ({show, onHide}) => {
         <br/>Сделать это Вы можете в любое время на странице "Настройки профиля".
         </Modal.Body>
         <Modal.Footer>
-            <Button className="remodal-cancel" onHide={onHide}>Сделать позже</Button>
-            <Button className="remodal-confirm"  id="confirm_warn">Привязать сейчас</Button>
+            <button className="btnclass" onHide={onHide}>Сделать позже</button>
+            <button className="btnclass"  id="confirm_warn">Привязать сейчас</button>
         </Modal.Footer>
         </Container></Modal>
     );

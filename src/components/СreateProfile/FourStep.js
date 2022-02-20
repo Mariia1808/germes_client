@@ -1,14 +1,14 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import "../css/css.js"
+import "../../css/css.js"
 
 const FourStep = observer(()=>{
     return(
         <Container id="he">
             <div className="content_wall">
-                <h4>ШАГ 4</h4><br/>
-                <h6>Настройки парсера</h6><br/>
+                <h4>ШАГ 4 из 7 - Настройки парсера</h4><br/>
+               
 
                 <h4>ВИЛКИ</h4><br/>
 
