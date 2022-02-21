@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import { Button, Container } from "react-bootstrap";
 import "../../css/css.js"
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
+import { Context } from '../../index.js';
 
 const SevenStep = observer(()=>{
     const data = ["спорт","спорт","спорт","спорт","спорт","спорт","спорт",]
@@ -21,12 +22,12 @@ const SevenStep = observer(()=>{
     function changeMatmodel(){
         setMatmodel(!matmodel)
     }
-
+    const {user} = useContext(Context)
     return(
         <Container id="he">
             <div className='content_wall'>
                 <h4>ШАГ 7 из 7 - Правила для пар БК</h4><br/>
-            
+                {user.setIsAuth(true)}
                 <label>Букмекер 1:</label>
                 <select>
                     <option>

@@ -38,7 +38,7 @@ const SetupBk = observer(({nameBk, number, allKey})=>{
     return(
         <>
             <h4>Настройка {nameBk}</h4><br/><br/>
-
+            {console.log(allKey)}
             <label>Адрес зеркала:</label>
             <input placeholder='https://www.bet265.com'/><br/><br/><hr/>
 
@@ -137,12 +137,12 @@ const SetupBk = observer(({nameBk, number, allKey})=>{
                     </>
                 case allKey-1:
                     return <>
-                    <Button className='btn_middle' size="lg" href="/four_step">Далее</Button>
+                    <Button className='btn_middle h' size="lg" href="/four_step">Далее</Button>
                     <Button className='btn_middle' size="lg">Назад</Button>
                     </>
                 default:
                     return <>
-                    <Button className='btn_middle' size="lg">Далее</Button>
+                    <Button className='btn_middle u' size="lg">Далее</Button>
                     <Button className='btn_middle' size="lg">Назад</Button>
                     </>
                 }

@@ -1,14 +1,16 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container } from "react-bootstrap";
 import "../../css/css.js"
+import { Context } from "../../index.js";
 
 const FourStep = observer(()=>{
+    const {user} = useContext(Context)
     return(
         <Container id="he">
             <div className="content_wall">
                 <h4>ШАГ 4 из 7 - Настройки парсера</h4><br/>
-               
+                {user.setIsAuth(true)}
 
                 <h4>ВИЛКИ</h4><br/>
 

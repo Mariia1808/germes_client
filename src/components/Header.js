@@ -54,9 +54,8 @@ const Header = () => {
                         return <span id="curr_page">Очистка фото</span>
                     case "/create_profil":
                         return <span id="curr_page">Создание профиля</span>
-
                     default:
-                        return null
+                        return <span id="curr_page">Создание профиля</span>
                     }
             })()}
                     </span>

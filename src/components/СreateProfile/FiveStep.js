@@ -1,8 +1,9 @@
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import { observer } from "mobx-react-lite";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import "../../css/css.js"
+import { Context } from "../../index.js";
 
 const FiveStep = observer(()=>{
 
@@ -10,12 +11,12 @@ const FiveStep = observer(()=>{
     function changePrioritet(){
         setPrioritet(!prioritet)
     }
-
+    const {user} = useContext(Context)
     return(
         <Container id="he">
             <div className="content_wall">
                 <h4>ШАГ 5 из 7 - Фильтры</h4><br/>
-               
+                {user.setIsAuth(true)}
                 <h4>Ставок</h4><br/>
 
                 <label>Круглая Фора </label>

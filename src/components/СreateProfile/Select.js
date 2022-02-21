@@ -75,7 +75,7 @@ export default class Select extends Component {
           value={this.state.optionSelected}
         />
         <Button className='btn_middle' size="lg" href="/three_step">Далее</Button>
-        <Button className='btn_middle' size="lg" href="/one_step">Назад</Button>
+        <Button className='btn_middle' size="lg" href="/create_profil">Назад</Button>
       </span>
       </>
     );

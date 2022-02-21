@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import { Button, Container } from "react-bootstrap";
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import "../../css/css.js"
 import Select from './Select.js';
+import { Context } from '../../index.js';
 
 
 const TwoStep = observer(()=>{
@@ -12,6 +13,7 @@ const TwoStep = observer(()=>{
     var values = []
     const [valuta, setValuta] = useState(false)
     const [bk, setBk] = useState("")
+    const {user} = useContext(Context)
 
     function handleChange(evt) {
         setBk({multiValue:[...evt.target.selected].map(o => o.value)}); 
@@ -27,6 +29,7 @@ const TwoStep = observer(()=>{
     return(
         <Container id="he">
             <div className='content_wall'>
+                {user.setIsAuth(true)}
                 {/* <h4>ШАГ 2 из 7 - Выберите необходимые БК</h4><br/>
                 <h6>рекомендуем выбирать не более 2-3 активных букмекеров</h6><br/>  */}
                 <Select onChange={handleChange} id="f"/>
