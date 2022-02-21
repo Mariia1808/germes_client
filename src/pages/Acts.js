@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import Header from '../components/Header.js';
 import "../css/css.js"
+import { Context } from '../index.js';
 
 
 const Acts = () => {
     const [ModalLeftMenu,setModalLeftMenu] = useState(false)
+    const {user} = useContext(Context)
         return (  
             <Card className="content_wall" id="con3">
+                {user.setIsAuth(true)}
             <div className="proxy_vds">
             <div className="pv_column-3 act-3">
                 <div className="title_pv">

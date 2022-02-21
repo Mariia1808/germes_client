@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
+import { Context } from "..";
 
 const Img = () => {
+    const {user} = useContext(Context)
     return (
         <Container id="he">
+            {user.setIsAuth(true)}
           <div class="content_wall" id="k">
             <div id="g1"><span id="g">Краткая иформация:&nbsp;</span>Цифровая фотография содержит в себе дополнительную информацию об устройстве, в какое время был сделан снимок, вплоть 
             до точных геоданных. Данные желательно полностью очистить, особенно если пользователь работает с букмекерскими конторами, которые в свою очередь сотрудничают с сервисами KYC.

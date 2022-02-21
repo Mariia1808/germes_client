@@ -12,7 +12,7 @@ const OperationBalance = observer(({operation})=>{
                     return <div className="box-balance" id="balance_block">
                             <form id="qiwi_payment" className="form_input" method="post" action="" enctype="utf-8">
                                 <label for="balance">Введите сумму платежа QIWI</label>
-                                <input id="qiwi_balance_add" name="sum" type="number" className="text_input" placeholder="введите сумму" value="" />
+                                <input id="qiwi_balance_add" name="sum" className="text_input" placeholder="введите сумму" value="" />
                                 <input type="button" id="submit_qiwi_balance_add" name="submit_qiwi_balance_add" value="оплатить" />
                             </form>
                         </div>
@@ -22,7 +22,7 @@ const OperationBalance = observer(({operation})=>{
                             <label for="partner">Введите сумму перевода</label>
                             <p>Перевод с партнерского счета на баланс</p>
                             <p></p> 
-                            <input id="partner_money" type="number" className="input_max" placeholder="введите сумму" />
+                            <input id="partner_money" className="input_max" placeholder="введите сумму" />
                             <input type="button" id="transfer_money" value="перевести" />
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const OperationBalance = observer(({operation})=>{
                             <label className='l' for="wallet_num">Введите номер кошелька / карты</label>
                             <input id="wallet_num" type="text" placeholder="введите номер кошелька / карты" maxlength="20" />
                             <label for="transfer_sum" className='tra'>Введите сумму вывода<span className="note">(мин. 2000<i className="far fa-ruble-sign"></i>)</span></label>
-                            <input id="transfer_sum" type="number" name="amount" className="input_max" placeholder="введите сумму" />
+                            <input id="transfer_sum" name="amount" className="input_max" placeholder="введите сумму" />
                             <input type="button" id="transfer_to_wallet" name="transfer_to_wallet" value="вывести" />
                             <input  type="hidden" id="amount_min" name="amount_min" value="2000" />
                         </div>

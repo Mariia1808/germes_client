@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { Container } from "react-bootstrap";
+import React, { useContext, useState } from 'react';
+import { Button, Container } from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Attention from '../modals/Attention';
 import Header from '../components/Header';
 import "../css/css.js"
+import { Context } from '..';
 
 const Panel = observer(() => {
-
+    const {user} = useContext(Context)
     const [ModalVk,setModalVk] = useState(true)
     return (
         <Container id="he"> 
-            
+            {user.setIsAuth(true)}
            <Attention show={ModalVk} onHide={()=> setModalVk(false)}/>
            <div className="content_admin">
            <div className="content_wall" id="con2">
@@ -58,8 +59,8 @@ const Panel = observer(() => {
                 <option value="12">Pinnacle</option>
                 <option value="20">WinLineBet</option>
                 </select>
-    				<button type="submit" name="show_forks_start" className="show_forks">показать</button>
-                    <button type="submit" name="show_forks_stop" className="stop_forks" disabled="true">стоп</button>
+    				<Button type="submit" name="show_forks_start" className="show_forks">показать</Button>
+                    <Button type="submit" name="show_forks_stop" className="stop_forks" disabled="true">стоп</Button>
                 </form>
             </div>
         </div>

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Card, Container, Form} from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Header from '../components/Header';
+import { Context } from '..';
 
 const Profile = observer(() => {
-
+    const {user} = useContext(Context)
             return (
         <Container id="he">
-              
+              {user.setIsAuth(true)}
             <div className="box profile" id="box">
             <div className="column-2">
                 <h3>Общая информация</h3>

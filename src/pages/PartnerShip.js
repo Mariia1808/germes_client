@@ -1,13 +1,15 @@
 import { observer } from 'mobx-react-lite';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Header from '../components/Header.js';
 import "../css/css.js"
+import { Context } from '../index.js';
 
 const PartnerShip = observer(() => {
+    const {user} = useContext(Context)
         return (   
                 <div className="content_wall" id='rel'>
-                    
+                    {user.setIsAuth(true)}
                     <div className="div-info" id='s'>Ваш промо-код: <span>63ccbcfa6141937edbe8,</span>
                         &nbsp;переходов по ссылке: <span>0</span>
                         <span id='e'><a href="#" id="rules_popup">КАК РАБОТАЕТ ПАРТНЁРСКАЯ ПРОГРАММА?</a></span>

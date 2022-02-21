@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import "../css/css.js"
 import Header from '../components/Header';
 import FinanceTable from '../components/FinanceTable.js';
 import { observer } from 'mobx-react-lite';
 import OperationBalance from '../components/OperationBalance.js';
+import { Context } from '../index.js';
 
 
 const Finance = observer(() => {
     const [table, setTable] = useState('')
     const [operation, setOperation] = useState('')
+    const {user} = useContext(Context)
         return (
             <Container id="he">
-                  
+                  {user.setIsAuth(true)}
                 <div className="content_admin">
                     <input type="hidden" id="payment_message" value="" />
                     <input type="hidden" id="operation" value="all" />
@@ -78,32 +80,9 @@ const Finance = observer(() => {
                 </div>
             </div>
             <form id="finance">
-                <div className="content_wall" id="tabs_key" id="con1">
-                <div className="tab_api_key active">
-                <h3>Все операции</h3>
-                <div className="head_tab">
-                    <div className="show">
-                        <label>Показывать</label>
-                        <select id="record_on_page" name="record_on_page" className="inp_style_tab">
-                            <option value="10" selected>10</option>
-                            <option value="20">20</option>
-                            <option value="50">50</option>
-                        </select>
-                        <span>операций</span>
-                    </div>
-                    <div className="refresh" title="Перегрузить">
-                        <a className="inp_style_tab"><i className="far fa-sync"></i></a>
-                    </div>
-                </div>
+                
                 <FinanceTable number={table}/>
-            </div>
-            <div className="paging">
-            <br /><div className='page_info'>
-            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
-            </div>
-        
-            </div>
-        </div>            
+            
         </form>
                 </div>
             </Container>

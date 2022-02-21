@@ -1,10 +1,13 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
+import { Context } from "..";
 
 const Stats = observer(()=>{
+    const {user} = useContext(Context)
     return(
         <Container id="he">
+            {user.setIsAuth(true)}
         <div class="content_wall">
         <form action="" method="post" id="bots_list">
             <div class="tab_api_key">                       

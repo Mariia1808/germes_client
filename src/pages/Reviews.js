@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from "react-bootstrap";
 import { observer } from 'mobx-react-lite'; 
 import "../css/css.js"
 import Header from '../components/Header';
 import ReviewList from '../components/ReviewList';
+import { Context } from '../index.js';
 
 const Reviews = observer(() => {
 
-    
+    const {user} = useContext(Context) 
    
         return (
         <Container id="he"> 
-            
+            {user.setIsAuth(true)}
            <div className="content_wall">
             <form id="reviews_vk_form">
             <div className="tab_api_key reviews_vk">

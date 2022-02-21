@@ -1,15 +1,22 @@
 import {observer} from "mobx-react-lite";
-import React from 'react';
+import React, { useContext } from 'react';
 import {BrowserRouter} from "react-router-dom";
+import { Context } from ".";
 import AppRouter from "./components/AppRouter";
 import Header from "./components/Header";
 
 
 const App = observer(() => {
+  const {user} = useContext(Context)
     return (
       <BrowserRouter>
-          <Header/>
-          <AppRouter />
+      {(user.isAuth)?
+      <>
+        <Header/>
+        <AppRouter />
+      </>
+      :
+        <AppRouter />}
       </BrowserRouter>
     );
 });

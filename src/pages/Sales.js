@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import Header from '../components/Header.js';
 import "../css/css.js"
+import { Context } from '../index.js';
 
 const Sales = () => {
+    const {user} = useContext(Context)
         return (
             <Container id="he">
-                 
+                 {user.setIsAuth(true)}
                 <div className="content_wall" id='rel'>
                         <form id="form_sales">
                         <div className="tab_api_key">
