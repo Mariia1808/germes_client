@@ -6,11 +6,14 @@ import Header from '../components/Header';
 import "../css/css.js"
 import { Context } from '../index.js';
 import { fetchKeys } from '../http/userAPI';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Panel = observer(() => {
     const {user} = useContext(Context)
     const [ModalVk,setModalVk] = useState(true)
     const [key, setKey] = useState("")
+    const [date, setDate] = useState(new Date());
     // useEffect(() =>{
     //     fetchKeys("A","","","").then(data => user.setKeys(data))
     // },[])
@@ -104,6 +107,7 @@ const Panel = observer(() => {
                     </div>
                     <div className="filtr_item" id="blok_date_key">
                         <label htmlFor="date_key">Дата покупки</label>
+                        <Calendar onChange={setDate} value={date} selectRange={true}/>
                         <input type="text" id="date_key" name="date_key" className="inp_style_tab" value="" />
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить календарь"></i></button>
