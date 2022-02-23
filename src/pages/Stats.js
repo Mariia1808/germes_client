@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
-import { Context } from "..";
+import { Context } from "../index.js";
 
 const Stats = observer(()=>{
     const {user} = useContext(Context)

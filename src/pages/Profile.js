@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Card, Container, Form} from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Header from '../components/Header';
-import { Context } from '..';
+import { Context } from '../index.js';
 
 const Profile = observer(() => {
     const {user} = useContext(Context)
@@ -32,19 +32,19 @@ const Profile = observer(() => {
                     <h3>Настройки профиля</h3>
                     <form action="/personal/panel/profile" method="post" className="form_input">
                         <span>Изменить пароль</span>
-                        <label for="old_password">Старый пароль</label>
+                        <label htmlFor="old_password">Старый пароль</label>
                         <input id="old_password" name="old_password" type="text" />
-                        <label for="new_password">Новый пароль</label>
+                        <label htmlFor="new_password">Новый пароль</label>
                         <input id="new_password" name="new_password" type="text" />
-                        <label for="confirm_password">Повторите новый пароль</label>
+                        <label htmlFor="confirm_password">Повторите новый пароль</label>
                         <input id="confirm_password" name="confirm_password" type="text" />
-                        <label for="enter_log">Изменить вход на сайт</label>
+                        <label htmlFor="enter_log">Изменить вход на сайт</label>
                         <input type="text" id="enter_log" value="" placeholder="новый логин" />
-                        <label for="enter_name">Изменить имя пользователя</label>
+                        <label htmlFor="enter_name">Изменить имя пользователя</label>
                         <input type="text" id="enter_name" value="" placeholder="новое имя" />
-                        <label for="enter_name">Изменить промокод</label>
+                        <label htmlFor="enter_name">Изменить промокод</label>
                         <input type="text" id="new_promo" value="" placeholder="новый промокод" title="Допускаются только латинские буквы, цифры, символы подчёркивания, точки и дефисв." />
-                        <label for="enter_name">Изменить телеграм ID <span className="tlg_note">(для отправки сообщений о неактивных ботах, см. "Настройки")</span></label>
+                        <label htmlFor="enter_name">Изменить телеграм ID <span className="tlg_note">(для отправки сообщений о неактивных ботах, см. "Настройки")</span></label>
                         <input type="text" id="telegram_id" value="" placeholder="установить новый ID" />                                                
                         <br />
                         <input type="button" id="save" name="save" value="сохранить" />

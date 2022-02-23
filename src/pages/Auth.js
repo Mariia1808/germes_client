@@ -3,10 +3,10 @@ import { Container} from "react-bootstrap";
 import {NavLink, useNavigate} from "react-router-dom";
 import { PANEL_ROUTE, PASSWORD_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
 import { observer } from 'mobx-react-lite';
-import {login} from "../http/userAPI";
+import {keys, login} from "../http/userAPI";
 import {useFavicon, useTitle} from 'react-use'; 
 import "../css/css.js"
-import { Context } from '..';
+import { Context } from '../index.js';
 
 const Auth = observer(() => {
 
@@ -17,18 +17,20 @@ const Auth = observer(() => {
     const [error, setError] = useState('')
     const history = useNavigate()
     const {user} =useContext(Context)
+    const [users, setUser] = useState(null);
 
     const click = async () => {
         try {
             let data;
-            const formData1 = JSON.stringify({"login":email,"password":password})
-            console.log(formData1)
-            // console.log(email)
-            // console.log(password)
-            data = await login(formData1);
+            let data1;
+            const status = "A"
+            data = await login(email, password);
+            data1 = await keys()
             if(data.response === "no_error")
             {
-                setError("")
+                data1 = await keys(status," "," "," ")
+                setError()
+                user.setUser(users)
                 user.setIsAuth(true)
                 history(PANEL_ROUTE)
             } else{
@@ -45,25 +47,26 @@ const Auth = observer(() => {
     return (
         <Container> 
             <div className="content">
+                {user.setIsAuth(false)}
             <div id="login_form" className="cont_auth active">
         <div className="logotype">
             <img src="https://germes.bet/personal/assets/images/logo_germes-14.png" alt="Germes" />
         </div>
         <div className="form_auth">
-            <form action="" method="post" id="form_login">
+            <form  id="form_login">
 
                 <div className="form_item">
-                    <label for="email">E-mail или Логин</label>
+                    <label htmlFor="email">E-mail или Логин</label>
                     <input type="text" id="email" name="email" className="dark_line_input" 
-                    value={email} onChange={e => setEmail(e.target.value)} autocomplete="off" />
+                    value={email} onChange={e => setEmail(e.target.value)} autoComplete="off" />
                     <span className="focus-border"></span>
                 </div>
 
                 <div className="form_item password">
-                    <label for="password">Пароль</label>
+                    <label htmlFor="password">Пароль</label>
                     <NavLink to={PASSWORD_ROUTE} className="forgout_pass" id="forg_btn">Забыли пароль?</NavLink>
                     <input type="password" id="password" name="password" className="dark_line_input password_input" 
-                    value={password} onChange={e => setPassword(e.target.value)} autocomplete="off" />
+                    value={password} onChange={e => setPassword(e.target.value)} autoComplete="off" />
                     <span className="focus-border"></span>
                     <div className="eye"><i className="fal fa-eye-slash"></i></div>
                 </div>
@@ -72,7 +75,7 @@ const Auth = observer(() => {
                 </div>
                 <div className="form_item bt_login">
                     <span id="checkbox"><input type="checkbox" name="remember_me" id="remember_me" />
-                    <label for="remember_me" id="remember_me_lb">Запомнить меня</label></span>
+                    <label htmlFor="remember_me" id="remember_me_lb">Запомнить меня</label></span>
                     <input type="button" id="login" onClick={click} value="Войти"/>
                 </div>
 

@@ -22,7 +22,7 @@ const Auth = observer(() => {
         <div className="form_auth">
             <form action="/" method="post" id="form_frg">
                 <div className="form_item">
-                    <label for="forgot_email">Введите e-mail</label>
+                    <label htmlFor="forgot_email">Введите e-mail</label>
                     <input type="text" id="forgot_email" name="forgot_email" 
                     value={email} onChange={e => setEmail(e.target.value)} className="dark_line_input" autocomplete="off" />
                     <span className="focus-border"></span>

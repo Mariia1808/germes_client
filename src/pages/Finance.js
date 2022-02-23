@@ -72,7 +72,7 @@ const Finance = observer(() => {
                         </ul>
                     </div>
                     <div className="search">
-                        <label for="date_key">Поиск по дате&nbsp;&nbsp;</label>
+                        <label htmlFor="date_key">Поиск по дате&nbsp;&nbsp;</label>
                         <input className="inp_style_tab" id="date_key"  type="text" name="search" autocomplete="off" />
                     </div>
                     <div className="clear_form" title="Очистить все поля формы"><a className="inp_style_tab"><i className="fal fa-times"></i></a></div>

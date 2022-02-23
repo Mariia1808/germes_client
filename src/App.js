@@ -1,5 +1,5 @@
 import {observer} from "mobx-react-lite";
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import {BrowserRouter} from "react-router-dom";
 import { Context } from ".";
 import AppRouter from "./components/AppRouter";

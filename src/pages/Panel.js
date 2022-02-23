@@ -1,24 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container } from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Attention from '../modals/Attention';
 import Header from '../components/Header';
 import "../css/css.js"
-import { Context } from '..';
+import { Context } from '../index.js';
+import { fetchKeys } from '../http/userAPI';
 
 const Panel = observer(() => {
     const {user} = useContext(Context)
     const [ModalVk,setModalVk] = useState(true)
+    const [key, setKey] = useState("")
+    // useEffect(() =>{
+    //     fetchKeys("A","","","").then(data => user.setKeys(data))
+    // },[])
     return (
         <Container id="he"> 
-            {user.setIsAuth(true)}
-           <Attention show={ModalVk} onHide={()=> setModalVk(false)}/>
+             {user.setIsAuth(true)}
+            {/* {console.log(user.user)} */}
+            {/* {console.log(user)} */} 
+           {/* <Attention show={ModalVk} onHide={()=> setModalVk(false)}/> */}
            <div className="content_admin">
            <div className="content_wall" id="con2">
             <div className="tab_api_key">
            <h6 id="table_title">Активные вилки</h6>
                 <form action="" method="post">
-    				<label for="forks_bk1" className='bk1'>БК №1&nbsp;</label>
+    				<label htmlFor="forks_bk1" className='bk1'>БК №1&nbsp;</label>
                 <select name="forks_bk1" id="forks_bk1" className="bk_ddlb">
                 <option value="0">ВСЕ</option>
                 <option value="22">1XBet</option>
@@ -39,7 +46,7 @@ const Panel = observer(() => {
                 <option value="20">WinLineBet</option>
                 </select>
                     &nbsp;&nbsp;
-                    <label for="forks_bk2" className='bk1'> БК №2&nbsp;</label>
+                    <label htmlFor="forks_bk2" className='bk1'> БК №2&nbsp;</label>
                 <select name="forks_bk2" id="forks_bk2" className="bk_ddlb">
                 <option value="0">ВСЕ</option>
                 <option value="22">1XBet</option>
@@ -60,7 +67,7 @@ const Panel = observer(() => {
                 <option value="20">WinLineBet</option>
                 </select>
     				<Button type="submit" name="show_forks_start" className="show_forks">показать</Button>
-                    <Button type="submit" name="show_forks_stop" className="stop_forks" disabled="true">стоп</Button>
+                    <Button type="submit" name="show_forks_stop" className="stop_forks" disabled={true}>стоп</Button>
                 </form>
             </div>
         </div>
@@ -71,14 +78,14 @@ const Panel = observer(() => {
                 <h6>Фильтр</h6>
                 <div className="filters">
                     <div className="filtr_item" id="blok_type_key">
-                        <label for="type_key">Тарифный план</label>
+                        <label htmlFor="type_key">Тарифный план</label>
                         
                     <select id="rate_id" name="rate_id" className="inp_style_tab">
                     <option value=""></option>
                     </select>
                     </div>
                     <div className="filtr_item" id="blok_scanner_key">
-                        <label for="scanner_key">Тип сканера</label>
+                        <label htmlFor="scanner_key">Тип сканера</label>
                         <select id="scanner_key" name="soft_type" className="inp_style_tab">
                             <option value="">Все</option>
                             <option value="1">Бот</option>
@@ -86,8 +93,8 @@ const Panel = observer(() => {
                         </select>
                     </div>                    
                     <div className="filtr_item" id="blok_status_key">
-                        <label for="status_key">Статус ключей</label>
-                        <select id="status_key" name="status_key" className="inp_style_tab">
+                        <label htmlFor="status_key">Статус ключей</label>
+                        <select id="status_key" onChange={e => setKey(e.target.value)} name="status_key" className="inp_style_tab">
                             <option value="T">Все подписки</option>
                             <option value="A" selected>Все активные подписки</option>
                             <option value="Y">Активные ключи</option>
@@ -96,7 +103,7 @@ const Panel = observer(() => {
                         </select>
                     </div>
                     <div className="filtr_item" id="blok_date_key">
-                        <label for="date_key">Дата покупки</label>
+                        <label htmlFor="date_key">Дата покупки</label>
                         <input type="text" id="date_key" name="date_key" className="inp_style_tab" value="" />
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить календарь"></i></button>
@@ -109,7 +116,25 @@ const Panel = observer(() => {
         <div className="content_wall" id="tabs_key">
             <form>
             <div className="tab_api_key active">
-                <h6>Все активные подписки (всего: <span className="all" id="total_count">0</span>)</h6>
+                <h6>
+                {(() => {
+                    switch (key) {
+                    case "T":
+                        return <>Все подписки </>
+                    case "A":
+                        return <>Все активные подписки </>
+                    case "S":
+                        return <>Активные ключи </>
+                    case "Y":
+                        return <>Остановленные ключи </>
+                    case "N":
+                        return <>Неактивные ключи </>
+                    default:
+                        return <>Все активные подписки </>
+                    }
+                })()}
+                    (всего: <span className="all" id="total_count">0</span>)</h6>
+                    
                 <div className="head_tab">
                     <div className="show">
                         <label>Показывать</label>
@@ -147,7 +172,7 @@ const Panel = observer(() => {
                         </tr>
                     </thead>
                      <tr>
-                        <td colspan="9">Не найдено бот-ключей по Вашему запросу.</td>
+                        <td colSpan="9">Не найдено бот-ключей по Вашему запросу.</td>
                     </tr>
                             
                 </table>

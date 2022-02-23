@@ -142,14 +142,14 @@ const SevenStep = observer(()=>{
                             <td>{data}</td>
                             <td>Обе БК</td>
                             <td>
-                                <select value={total}>
+                                <select value={total} onChange=''>
                                     <option value="tnone">-</option>
                                     <option value="t1">Больше</option>
                                     <option value="t2">Меньше</option>
                                 </select>
                             </td>
                             <td>
-                                <select value={fora}>
+                                <select value={fora} onChange=''>
                                     <option value="fnone">-</option>
                                     <option value="f1">Выиграшная</option>
                                     <option value="f2">Проигрышная</option>
@@ -157,7 +157,7 @@ const SevenStep = observer(()=>{
                             </td>
                             
                             <td>
-                                <select value={ini}>
+                                <select value={ini} onChange=''>
                                     <option value="inone">-</option>
                                     <option value="i1">Да</option>
                                     <option value="i2">Нет</option>
@@ -165,14 +165,14 @@ const SevenStep = observer(()=>{
                             </td>
 
                             <td>
-                                <select value={kef}>
+                                <select value={kef} onChange=''>
                                     <option value="knone">-</option>
                                     <option value="k1">Больше</option>
                                     <option value="k2">Меньше</option>
                                 </select>
                             </td>
                             <td>
-                                <select value={ocher}>
+                                <select value={ocher} onChange=''>
                                     <option value="o1">Первая БК</option>
                                     <option value="02">Вторая БК</option>
                                 </select>

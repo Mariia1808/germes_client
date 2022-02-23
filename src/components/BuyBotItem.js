@@ -29,7 +29,7 @@ const BuyBotItem = () => {
             <div className="form_price form_input" id="price_form_1">
                 <form action="#" method="post">
                     <div className="content_form_price">
-                        <label for="ip_test">Введите IP адрес VDS</label>
+                        <label htmlFor="ip_test">Введите IP адрес VDS</label>
                         <p>VDS используется для установки на него бота, подходящий VDS можно выбрать на нашей странице <a href="https://germes.bet/personal/panel/pv/vds" target="_self">VDS</a></p>
                         <input id="ip_test" className="ip" name="ip" type="text" placeholder="Введите ip" />
                         <input type="hidden" id="soft_type" value="1" />

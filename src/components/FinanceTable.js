@@ -37,7 +37,7 @@ const FinanceTable = ({number}) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr><td colspan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                                <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
                                 </tbody>
                             </table>
                             </div>
@@ -75,7 +75,7 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                        <tr><td colspan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                        <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
                         </tbody>
                     </table>
                     </div>
@@ -115,7 +115,7 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                            <tbody>
-                        <tr><td colspan='6' align='center'>Нет данных по Вашему запросу</td> </tr>                       
+                        <tr><td colSpan='6' align='center'>Нет данных по Вашему запросу</td> </tr>                       
                             </tbody>
                         </table>
                         </div>
@@ -155,7 +155,7 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                    <tr><td colspan='6' align='center'>Нет данных по Вашему запросу</td> </tr>             
+                    <tr><td colSpan='6' align='center'>Нет данных по Вашему запросу</td> </tr>             
                     </tbody>
                     </table>
                     </div>
@@ -193,7 +193,7 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                        <tr><td colspan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                        <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
                         </tbody>
                     </table>
                     </div>

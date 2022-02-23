@@ -24,26 +24,26 @@ const Registration = observer(() => {
         <div >
             <Form id="form_signup">
                 <div className="form_item">
-                    <label for="user_name">Ваше имя *</label>
+                    <label htmlFor="user_name">Ваше имя *</label>
                     <input type="text" name="user_name" id="user_name"
                     value={name} onChange={e => setName(e.target.value)} className="dark_line_input" />
                     <span className="focus-border"></span>
                 </div>
                 <div className="form_item">
-                    <label for="email_sgn">E-mail *</label>
+                    <label htmlFor="email_sgn">E-mail *</label>
                     <input type="text" name="email" id="email_sgn"
                     value={email} onChange={e => setEmail(e.target.value)} className="dark_line_input" autocomplete="off" />
                     <span className="focus-border"></span>
                 </div>
                 <div className="form_item password">
-                    <label for="password_sgn">Пароль *</label>
+                    <label htmlFor="password_sgn">Пароль *</label>
                     <input type="text" name="password" id="password_sgn"
                     value={password} onChange={e => setPassword(e.target.value)} className="dark_line_input password_input" autocomplete="off" />
                     <span className="focus-border"></span>
                     <div className="eye"><i className="fal fa-eye-slash"></i></div>
                 </div>
                 <div className="form_item">
-                    <label for="phone_sgn">Моб. телефон *</label>
+                    <label htmlFor="phone_sgn">Моб. телефон *</label>
                     <input type="text" name="phone" id="phone_sgn"
                     value={phone} onChange={e => setPhone(e.target.value)} className="dark_line_input" autocomplete="off" maxlength="12" />
                     <span className="focus-border"></span>
@@ -51,7 +51,7 @@ const Registration = observer(() => {
                 <p className="form_item">Для телефона только цифры (например: 79811534755). На этот мобильный телефон будет отправлено СМС с кодом для подтверждения регистрации.</p>
                         
                 <div className="form_item">
-                    <label for="refcode">Промо-код</label>
+                    <label htmlFor="refcode">Промо-код</label>
                     <input type="text" name="refcode" id="refcode" 
                     value={promo} onChange={e => setPromo(e.target.value)} className="dark_line_input" autocomplete="off" />
                     <span className="focus-border"></span>
