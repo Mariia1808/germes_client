@@ -1,31 +1,79 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Attention from '../modals/Attention';
-import Header from '../components/Header';
 import "../css/css.js"
 import { Context } from '../index.js';
-import { fetchKeys } from '../http/userAPI';
+import { keys } from '../http/userAPI';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import AttentionSubscription from '../modals/AttentionSubscription';
+
 
 const Panel = observer(() => {
     const {user} = useContext(Context)
     const [ModalVk,setModalVk] = useState(true)
+    const [ModalSub,setModalSub] = useState(false)
+    const [api, setApi] = useState("")
+    const [numberBut, setNumberBut] = useState("")
     const [key, setKey] = useState("")
-    const [date, setDate] = useState(new Date());
-    // useEffect(() =>{
-    //     fetchKeys("A","","","").then(data => user.setKeys(data))
-    // },[])
+    const [rate, setRate] = useState("")
+    const [soft, setSoft] = useState("")
+    const [subscription, setSubscription] = useState([])
+    const [date_key, setDate] = useState(new Date());
+    useEffect(() =>{
+        keys("A","","","").then(data=>setSubscription(data))
+    },[])
+
+    const click = async () => {
+        try {
+            let data;
+            data = await keys(key, rate, soft, date_key);
+        } catch (e) {
+            alert()
+        }
+
+    }
+
+    const Data = (marker) =>{
+        let stringData = ""
+        const minus = new Date(marker) - new Date().getTime()/1000
+        if (minus<0)
+        {
+            return "не стартован"
+        }
+        else{
+            const day = parseInt(minus/86400)
+            const hour = parseInt((minus/86400 - day)*24)
+            const minutes = parseInt(((minus/86400 - day)*24-hour)*60)
+            
+            return stringData = day +" дн. "+ hour + " ч. "+ minutes + " м."
+        }
+    }
+    const Froz = (froze, numb)=>{
+        if (froze===0){
+            return 0
+        }else{
+            return numb
+        }
+    }
+    const ModSub = (a, b) =>{
+        setApi(a)
+        setModalSub(true)
+        setNumberBut(b)
+    }
+
     return (
         <Container id="he"> 
              {user.setIsAuth(true)}
-            {/* {console.log(user.user)} */}
-            {/* {console.log(user)} */} 
+            <AttentionSubscription show={ModalSub} api={api} keys={numberBut} onHide={()=> setModalSub(false)}/>
+             
+
            {/* <Attention show={ModalVk} onHide={()=> setModalVk(false)}/> */}
            <div className="content_admin">
            <div className="content_wall" id="con2">
             <div className="tab_api_key">
+             
            <h6 id="table_title">Активные вилки</h6>
                 <form action="" method="post">
     				<label htmlFor="forks_bk1" className='bk1'>БК №1&nbsp;</label>
@@ -107,7 +155,7 @@ const Panel = observer(() => {
                     </div>
                     <div className="filtr_item" id="blok_date_key">
                         <label htmlFor="date_key">Дата покупки</label>
-                        <Calendar onChange={setDate} value={date} selectRange={true}/>
+                        <Calendar onChange={setDate} value={date_key} selectRange={true}/>
                         <input type="text" id="date_key" name="date_key" className="inp_style_tab" value="" />
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить календарь"></i></button>
@@ -175,15 +223,49 @@ const Panel = observer(() => {
                             <th>Действие</th>
                         </tr>
                     </thead>
+                     <tbody>
+                     {subscription.map(subscriptions=>
                      <tr>
-                        <td colSpan="9">Не найдено бот-ключей по Вашему запросу.</td>
+                        <td>{subscriptions.user_ip}</td>
+                        <td>{subscriptions.bk_name}</td>
+                        <td>{subscriptions.api_key}</td>
+                        <td>{subscriptions.api_pass}</td>
+                        <td>{subscriptions.api_key_type}</td>
+                        <td>{subscriptions.rate_id}</td>
+                        <td>
+                            {
+                                Data(subscriptions.date_end)
+                            }
+                        </td>
+                        <td>{Froz(subscriptions.date_end, subscriptions.frozen_number)}</td>
+                        
+                            {(() => {
+                                switch (subscriptions.date_end === 0) {
+                                    case true:
+                                        return <td><button type='button' onClick={() => ModSub(subscriptions.user_ip, 5)} title="Посмотреть историю ключа" className="but"><i className="bi bi-journals"></i></button></td>
+                                       
+                                    case false:
+                                        return <td>
+                                        <button type='button' title="Остановить ключ" onClick={() => ModSub(subscriptions.user_ip, 1)} className="but"><i className="bi bi-pause-btn"></i></button>
+                                        <button type='button' title="Разделить ключ на два ключа" onClick={() => ModSub(subscriptions.user_ip, 2)} className="but"><i className="bi bi-layout-split"></i></button>
+                                        <button type='button' title="Продлить срок действия ключа" onClick={() => ModSub(subscriptions.user_ip, 3)} className="but"><i className="bi bi-gear"></i></button>
+                                        <button type='button' title="Добавить дополнительную заморозку" onClick={() => ModSub(subscriptions.user_ip, 4)} className="but"><i className="bi bi-plus-square-fill"></i></button>
+                                        <button type='button' title="Посмотреть историю ключа" onClick={() => ModSub(subscriptions.user_ip, 5)} className="but"><i className="bi bi-journals"></i></button>
+                                        </td>
+                                    default:
+                                        return null
+                                }
+                            })()}
+                        
                     </tr>
+                      )}
+                    </tbody>
                             
                 </table>
             </div>
             <div className="paging">
 <br /><div className='page_info'>
-Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+Страница 1 из 1. Записи от 1 до 0. Всего записей: {subscription.length}.
 </div>
         
             </div>

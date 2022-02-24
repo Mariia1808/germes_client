@@ -8,6 +8,7 @@ import {useFavicon, useTitle} from 'react-use';
 import "../css/css.js"
 import { Context } from '../index.js';
 
+
 const Auth = observer(() => {
 
     useFavicon('https://germes.bet/personal/assets/images/favicon.png')
@@ -18,21 +19,20 @@ const Auth = observer(() => {
     const history = useNavigate()
     const {user} =useContext(Context)
     const [users, setUser] = useState(null);
+    
 
     const click = async () => {
         try {
             let data;
-            let data1;
-            const status = "A"
-            data = await login(email, password);
-            data1 = await keys()
+            const formData = new FormData()
+            formData.append('login', email)
+            formData.append('password', password)
+                console.log(formData)
+            data = await login(formData);
             if(data.response === "no_error")
             {
-                data1 = await keys(status," "," "," ")
                 setError()
-                user.setUser(users)
                 user.setIsAuth(true)
-               
                 history(PANEL_ROUTE)
             } else{
                 setError(data.error_text)
