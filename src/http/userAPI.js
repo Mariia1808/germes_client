@@ -12,3 +12,8 @@ export const keys = async (status, rate, soft, date_key) => {
     console.log(data)
     return data
 }
+export const bkHistory = async (bk_id) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/bk_hist.php',bk_id, {withCredentials: true}) 
+    console.log(data)
+    return data
+}

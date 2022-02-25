@@ -191,3 +191,13 @@
     box-shadow: 0 0 0 0.2rem rgba(255, 179, 38, 0.705)!important;
     border-color: #ff9a21!important;
 }
+.buttable{
+    border: none;
+    background-color: #ffffff;
+}
+.buttable:hover{
+    color: #ff9a21;
+}
+#bold{
+    font-weight: bold;
+}

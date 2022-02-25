@@ -32,6 +32,8 @@ const AttentionSubscription = ({show, onHide, api, keys}) => {
                     return <>Вы действительно хотите добавить заморозку Бот-ключу с IP={api}?</>
                 case 5:
                     return <></>
+                case 6:
+                    return <>Вы действительно хотите удалить неактивный Бот-ключ? Эта операция необратима.</>
                 default:
                     return null
             }
