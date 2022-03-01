@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import "../css/css.js"
 import Header from '../components/Header';
@@ -6,12 +6,19 @@ import FinanceTable from '../components/FinanceTable.js';
 import { observer } from 'mobx-react-lite';
 import OperationBalance from '../components/OperationBalance.js';
 import { Context } from '../index.js';
+import { balance } from '../http/userAPI.js';
 
 
 const Finance = observer(() => {
     const [table, setTable] = useState('')
     const [operation, setOperation] = useState('')
     const {user} = useContext(Context)
+    const [balanse, setBalanse] = useState([])
+
+    useEffect(() =>{
+        balance().then(data=>setBalanse(data))
+    },[])
+
         return (
             <Container id="he">
                   {user.setIsAuth(true)}
@@ -24,19 +31,19 @@ const Finance = observer(() => {
                 <div className="column-3-fin no-background attachment">
                     <div className="text">
                         <span>Баланс</span>
-                        <strong>0</strong><i className="fal fa-ruble-sign"></i>
+                        <strong>{balanse.balance}</strong><i className="fal fa-ruble-sign"></i>
                     </div>
                 </div>
                 <div className="column-3-fin no-background attachment">
                     <div className="text">
                         <span>Партнерка</span>
-                        <strong id="available" data-summ="0">0</strong><i className="fal fa-ruble-sign"></i>
+                        <strong id="available" data-summ="0">{balanse.partner}</strong><i className="fal fa-ruble-sign"></i>
                     </div>
                 </div>
                 <div className="column-3-fin no-background attachment">
                     <div className="text">
                         <span>CashBack *</span>
-                        <strong id="available" data-summ="0">0</strong><i className="fal fa-ruble-sign"></i>
+                        <strong id="available" data-summ="0">{balanse.cashback}</strong><i className="fal fa-ruble-sign"></i>
                     </div>
                 </div>
                 <span ></span>                

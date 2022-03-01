@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import Attention from '../modals/Attention';
 import "../css/css.js"
 import { Context } from '../index.js';
-import { bkHistory, keys } from '../http/userAPI';
+import { balance, bkHistory, keys } from '../http/userAPI';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import AttentionSubscription from '../modals/AttentionSubscription';
@@ -17,6 +17,7 @@ import FrozenKey from '../modals/FrozenKey';
 import HistoryKey from '../modals/HistoryKey';
 import RenewKey from '../modals/RenewKey';
 import SeparateKey from '../modals/SeparateKey';
+import moment from 'moment';
 
 
 const Panel = observer(() => {
@@ -34,25 +35,34 @@ const Panel = observer(() => {
     const [ModalSeparate,setModalSeparate] = useState(false)
     const [ModalStop,setModalStop] = useState(false)
     const [api, setApi] = useState("")
+    const [id, setId] = useState("")
     const [bkid, setBkid] = useState("")
     const [subscrip, setSubscrip] = useState([])
+    const [kolvo, setKolvo] = useState(10)
     const [numberBut, setNumberBut] = useState("")
     const [key, setKey] = useState("")
     const [rate, setRate] = useState("")
     const [soft, setSoft] = useState("")
     let arr2;
     const [subscription, setSubscription] = useState([])
+    const [balanse, setBalanse] = useState([])
     const [date_key, setDate] = useState(new Date());
     useEffect(() =>{
         keys("A","","","").then(data=>setSubscription(data))
+        balance().then(data => setBalanse(data))
     },[])
 
     const click = async () => {
         try {
             let data;
-            data = await keys(key, rate, soft, date_key);
+            const formData = new FormData()
+            formData.append('status', key)
+            formData.append('rate', rate)
+            formData.append('soft', soft)
+            formData.append('date_key', moment(date_key, 'DD-MM-YYYY').format())
+            data = await keys(formData);
         } catch (e) {
-            alert()
+            alert("lfnf ")
         }
 
     }
@@ -84,12 +94,14 @@ const Panel = observer(() => {
         setModalSub(true)
         setNumberBut(b)
     }
-    const ModName = (a) =>{
+    const ModName = (a, b) =>{
         setApi(a)
+        setId(b)
         setModalName(true)
     }
-    const ModApi = (a) =>{
+    const ModApi = (a, b) =>{
         setApi(a)
+        setId(b)
         setModalApi(true)
     }
     const ModKey = (a) =>{
@@ -127,8 +139,8 @@ const Panel = observer(() => {
         <Container id="he"> 
              {user.setIsAuth(true)}
             <AttentionSubscription show={ModalSub} api={api} keys={numberBut} onHide={()=> setModalSub(false)}/>
-            <ChangeName show={ModalName} api={api} onHide={()=> setModalName(false)}/>
-            <ChangeApi show={ModalApi} api={api} onHide={()=> setModalApi(false)}/>
+            <ChangeName show={ModalName} id={id} api={api} onHide={()=> setModalName(false)}/>
+            <ChangeApi show={ModalApi} id={id} api={api} onHide={()=> setModalApi(false)}/>
             <AttentionTable show={ModalKey} subr={subscrip} onHide={()=> setModalKey(false)}/>
             <StopKey show={ModalStop} api={api} onHide={()=> setModalStop(false)}/>
             <DeleteKey show={ModalDelete} api={api} onHide={()=> setModalDelete(false)}/>
@@ -205,7 +217,7 @@ const Panel = observer(() => {
                     <div className="filtr_item" id="blok_type_key">
                         <label htmlFor="type_key">Тарифный план</label>
                         
-                    <select id="rate_id" name="rate_id" className="inp_style_tab">
+                    <select id="rate_id" name="rate_id" onChange={e => setRate(e.target.value)} className="inp_style_tab">
                     <option value="15">Fonbet</option>
                     <option value="2">Personal</option>
                     <option value="1">Personal +</option>
@@ -214,7 +226,7 @@ const Panel = observer(() => {
                     </div>
                     <div className="filtr_item" id="blok_scanner_key">
                         <label htmlFor="scanner_key">Тип сканера</label>
-                        <select id="scanner_key" name="soft_type" className="inp_style_tab">
+                        <select id="scanner_key" name="soft_type" onChange={e => setSoft(e.target.value)} className="inp_style_tab">
                             <option value="">Все</option>
                             <option value="1">Бот</option>
                             <option value="2">Ручной сканер</option>
@@ -234,7 +246,7 @@ const Panel = observer(() => {
                         <label htmlFor="date_key">Дата покупки</label>
                         <Calendar onChange={setDate} value={date_key} selectRange={true}/>
                         <input type="text" id="date_key" name="date_key" className="inp_style_tab" value="" />
-                            &nbsp;&nbsp;<button className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
+                            &nbsp;&nbsp;<button type="button" onClick={() => click()} className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
                             &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить календарь"></i></button>
                     </div>
                 </div>
@@ -262,12 +274,12 @@ const Panel = observer(() => {
                         return <>Все активные подписки </>
                     }
                 })()}
-                    (всего: <span className="all" id="total_count">0</span>)</h6>
+                    (всего: <span className="all" id="total_count">{subscription.length}</span>)</h6>
                     
                 <div className="head_tab">
                     <div className="show">
                         <label>Показывать</label>
-                        <select id="record_on_page" name="record_on_page" className="inp_style_tab">              
+                        <select id="record_on_page" name="record_on_page" onChange={e => setKolvo(e.target.value)} className="inp_style_tab">              
                             <option value="5">5</option>
                             <option value="10" selected>10</option>
                             <option value="15">15</option>
@@ -303,9 +315,8 @@ const Panel = observer(() => {
                      <tbody>
                      {subscription.map(subscriptions=>
                      <tr>
-                         
-                        <td><button type='button' className="buttable" onClick={() => ModApi(subscriptions.user_ip)}>{subscriptions.user_ip}</button></td>
-                        <td><button type='button' className="buttable" onClick={() => ModName(subscriptions.user_ip)}>{subscriptions.bk_name}</button></td>
+                        <td><button type='button' className="buttable" onClick={() => ModApi(subscriptions.user_ip, subscriptions.id)}>{subscriptions.user_ip}</button></td>
+                        <td><button type='button' className="buttable" onClick={() => ModName(subscriptions.user_ip, subscriptions.id)}>{subscriptions.bk_name}</button></td>
                         <td><button type='button' className="buttable" onClick={() => ModKey(subscriptions)}>{subscriptions.api_key}</button></td>
                         <td>{subscriptions.api_pass}</td>
                         <td>{subscriptions.api_key_type}</td>

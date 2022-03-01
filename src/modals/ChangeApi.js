@@ -2,10 +2,31 @@ import React, { useState } from 'react';
 import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import "../css/css.js"
+import { changeIP } from '../http/userAPI.js';
 
 
-const ChangeApi = ({show, onHide, api, keys}) => {
+const ChangeApi = ({show, onHide, api, id}) => {
     const [yes, setYes]=useState(false)
+    const [ip, setIp]=useState("")
+    const [error, setError] = useState("")
+
+    const ChangeIp = async () =>{
+        let data;
+        const formData = new FormData()
+            formData.append('bk_id', id)
+            formData.append('bk_ip', ip)
+                console.log(formData)
+            data = await changeIP(formData);
+            if(data.response === "no_error")
+            {
+                setError()
+                window.location.reload()
+            }else{
+                setError(data.error_text)
+            }
+
+    }
+
     return (
         <Modal 
         show={show}
@@ -30,10 +51,13 @@ const ChangeApi = ({show, onHide, api, keys}) => {
                     </Modal.Footer></>
                 case true: 
                     return <><Modal.Body>
-                        Новый IP: <input placeholder="___.___.___.___" maxlength="15"></input>
+                        Новый IP: <input onChange={e => setIp(e.target.value)} placeholder="___.___.___.___" maxlength="15"></input>
+                        <div  id="error">
+                            {error}
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className="btnclass">Изменить</button>
+                        <button className="btnclass" onClick={()=>ChangeIp()}>Изменить</button>
                         <button className="btnclass" onClick={()=>setYes(false)}>Отмена</button>
                     </Modal.Footer>
                     </>
