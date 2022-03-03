@@ -3,6 +3,7 @@ import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import "../css/css.js"
 import { bkHistory } from '../http/userAPI.js';
+import SimpleDateTime  from 'react-simple-timestamp-to-date';
 
 
 const HistoryKey = ({show, onHide, bk_id, api}) => {
@@ -12,7 +13,10 @@ const HistoryKey = ({show, onHide, bk_id, api}) => {
     useEffect(() =>{
         bkHistory(formData).then(data=>setBkHis(data))
     },[])
-
+    const Close = () =>{
+        setBkHis([])
+        window.location.reload()
+    }
     return (
         <Modal 
         show={show}
@@ -28,15 +32,12 @@ const HistoryKey = ({show, onHide, bk_id, api}) => {
         <Modal.Body>
 
             Бот-ключ '{api}'
-            {console.log(bk_id)}
-            {console.log(bkHis)}
-            {console.log(formData)}
             {bkHis.map(histor=>
-            <label>{histor.processed_date} - {histor.action}</label>
+            <><label><b><SimpleDateTime dateSeparator="-" format="dmY" showTime="0">{histor.processed_date}</SimpleDateTime></b> - {histor.action}<br/><br/></label></>
             )}
         </Modal.Body>
         <Modal.Footer>
-            <button className="btnclass">Закрыть</button>
+            <button className="btnclass" onHide={onHide} onClick={()=>Close()}>Закрыть</button>
         </Modal.Footer>      
         </Container></Modal>
     );

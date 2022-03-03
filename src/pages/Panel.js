@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import Attention from '../modals/Attention';
 import "../css/css.js"
 import { Context } from '../index.js';
-import { balance, bkHistory, keys } from '../http/userAPI';
+import { balance, bkHistory, keys, rates } from '../http/userAPI';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import AttentionSubscription from '../modals/AttentionSubscription';
@@ -42,14 +42,19 @@ const Panel = observer(() => {
     const [numberBut, setNumberBut] = useState("")
     const [key, setKey] = useState("")
     const [rate, setRate] = useState("")
+    const [activ, setActive] = useState("")
+    const [arrRate, setArrRate] = useState([])
     const [soft, setSoft] = useState("")
     let arr2;
     const [subscription, setSubscription] = useState([])
     const [balanse, setBalanse] = useState([])
     const [date_key, setDate] = useState(new Date());
+    const formData1 = new FormData()
+        formData1.append('active', "N")
     useEffect(() =>{
         keys("A","","","").then(data=>setSubscription(data))
         balance().then(data => setBalanse(data))
+        rates("A").then(data=>setArrRate(data))
     },[])
 
     const click = async () => {
@@ -109,12 +114,14 @@ const Panel = observer(() => {
         setModalKey(true)
     }
 
-    const ModDelete = (a) =>{
+    const ModDelete = (a, b) =>{
         setApi(a)
+        setId(b)
         setModalDelete(true)
     }
-    const ModFrozen = (a) =>{
+    const ModFrozen = (a, b) =>{
         setApi(a)
+        setId(b)
         setModalFrozen(true)
     }
     const ModHistory = (a, b) =>{
@@ -122,16 +129,19 @@ const Panel = observer(() => {
         setBkid(b)
         setModalHistory(true)
     }
-    const ModRenew = (a) =>{
+    const ModRenew = (a, b) =>{
         setApi(a)
+        setId(b)
         setModalRenew(true)
     }
     const ModSeparate = (a) =>{
         setApi(a)
         setModalSeparate(true)
     }
-    const ModStop = (a) =>{
+    const ModStop = (a, b, c) =>{
         setApi(a)
+        setId(b)
+        setActive(c)
         setModalStop(true)
     }
 
@@ -142,9 +152,9 @@ const Panel = observer(() => {
             <ChangeName show={ModalName} id={id} api={api} onHide={()=> setModalName(false)}/>
             <ChangeApi show={ModalApi} id={id} api={api} onHide={()=> setModalApi(false)}/>
             <AttentionTable show={ModalKey} subr={subscrip} onHide={()=> setModalKey(false)}/>
-            <StopKey show={ModalStop} api={api} onHide={()=> setModalStop(false)}/>
-            <DeleteKey show={ModalDelete} api={api} onHide={()=> setModalDelete(false)}/>
-            <FrozenKey show={ModalFrozen} api={api} onHide={()=> setModalFrozen(false)}/>
+            <StopKey show={ModalStop} id={id} api={api} active={activ} onHide={()=> setModalStop(false)}/>
+            <DeleteKey show={ModalDelete} id={id} api={api} onHide={()=> setModalDelete(false)}/>
+            <FrozenKey show={ModalFrozen} id={id} api={api} onHide={()=> setModalFrozen(false)}/>
             {(() => {
                     switch (bkid>0) {
                     case true:
@@ -153,7 +163,7 @@ const Panel = observer(() => {
                         return <></>
                     }
                 })()}
-            <RenewKey show={ModalRenew} api={api} onHide={()=> setModalRenew(false)}/>
+            <RenewKey show={ModalRenew} api={api} id={id} onHide={()=> setModalRenew(false)}/>
             <SeparateKey show={ModalSeparate} api={api} onHide={()=> setModalSeparate(false)}/>
            {/* <Attention show={ModalVk} onHide={()=> setModalVk(false)}/> */}
            <div className="content_admin">
@@ -218,10 +228,9 @@ const Panel = observer(() => {
                         <label htmlFor="type_key">Тарифный план</label>
                         
                     <select id="rate_id" name="rate_id" onChange={e => setRate(e.target.value)} className="inp_style_tab">
-                    <option value="15">Fonbet</option>
-                    <option value="2">Personal</option>
-                    <option value="1">Personal +</option>
-                    <option value="7">Starter</option>
+                    {arrRate.map(data=>{
+                        return <option value={data.id}>{data.rate_name}</option>
+                    })}
                     </select>
                     </div>
                     <div className="filtr_item" id="blok_scanner_key">
@@ -331,14 +340,15 @@ const Panel = observer(() => {
                             {(() => {
                                 switch (subscriptions.date_end === 0) {
                                     case true:
-                                        return <td><button type='button' onClick={() => ModHistory(subscriptions.user_ip, subscriptions.id)} title="Посмотреть историю ключа" className="but"><i className="bi bi-journals"></i></button></td>
+                                        return <td><button type='button' onClick={() => ModHistory(subscriptions.user_ip, subscriptions.id)} title="Посмотреть историю ключа" className="but"><i className="bi bi-journals"></i></button>
+                                        <button type='button' title="Удалить ключ" onClick={() => ModDelete(subscriptions.user_ip, subscriptions.id)} className="but"><i className="bi bi-plus-square-fill"></i></button></td>
                                        
                                     case false:
                                         return <td>
-                                        <button type='button' title="Остановить ключ" onClick={() => ModStop(subscriptions.user_ip)} className="but"><i className="bi bi-pause-btn"></i></button>
+                                        <button type='button' title="Остановить ключ" onClick={() => ModStop(subscriptions.user_ip, subscriptions.id, subscriptions.activate)} className="but"><i className="bi bi-pause-btn"></i></button>
                                         <button type='button' title="Разделить ключ на два ключа" onClick={() => ModSeparate(subscriptions.user_ip)} className="but"><i className="bi bi-layout-split"></i></button>
-                                        <button type='button' title="Продлить срок действия ключа" onClick={() => ModRenew(subscriptions.user_ip)} className="but"><i className="bi bi-gear"></i></button>
-                                        <button type='button' title="Добавить дополнительную заморозку" onClick={() => ModFrozen(subscriptions.user_ip)} className="but"><i className="bi bi-plus-square-fill"></i></button>
+                                        <button type='button' title="Продлить срок действия ключа" onClick={() => ModRenew(subscriptions.user_ip, subscriptions.id)} className="but"><i className="bi bi-gear"></i></button>
+                                        <button type='button' title="Добавить дополнительную заморозку" onClick={() => ModFrozen(subscriptions.user_ip, subscriptions.id)} className="but"><i className="bi bi-plus-square-fill"></i></button>
                                         <button type='button' title="Посмотреть историю ключа" onClick={() => ModHistory(subscriptions.user_ip, subscriptions.id)} className="but"><i className="bi bi-journals"></i></button>
                                         </td>
                                     default:

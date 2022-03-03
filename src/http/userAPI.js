@@ -32,3 +32,33 @@ export const changeIP = async(datas) => {
     console.log(data)
     return data
 }
+export const addFrozen = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/set_bk_freeze.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const deleteKey = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/action_remove.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const stopKey = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/action_stop.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const startKey = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/action_start.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const renewKey = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/action_extend.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const rates = async(datas) => {
+    const {data} = await axios.get('https://api-germes.ru/scripts/apikeys/bk_rates.php?active=' + datas, {withCredentials: true})
+    console.log(data)
+    return data
+}

@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import "../css/css.js"
+import { addFrozen } from '../http/userAPI.js';
 
 
-const FrozenKey = ({show, onHide, api}) => {
+const FrozenKey = ({show, onHide, api, id}) => {
     const [yes, setYes]=useState(false)
+    const addFroz = async () =>{
+        let data;
+        const formData = new FormData()
+            formData.append('bk_id', id)
+            data = await addFrozen(formData);
+            if(data.response === "no_error")
+            {
+                window.location.reload()
+            }
+    }
     return (
         <Modal 
         show={show}
@@ -36,7 +47,7 @@ const FrozenKey = ({show, onHide, api}) => {
                         Хотите продолжить?
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className="btnclass">Изменить</button>
+                        <button onClick={()=>addFroz()} className="btnclass">Изменить</button>
                         <button className="btnclass" onClick={()=>setYes(false)}>Отмена</button>
                     </Modal.Footer>
                     </>

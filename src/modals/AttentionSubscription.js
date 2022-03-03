@@ -23,9 +23,8 @@ const AttentionSubscription = ({show, onHide, api, keys}) => {
         {(() => {
             switch (keys) {
                 case 1:
-                    return <>Вы действительно хотите остановить Бот-ключ с IP={api}?</>
                 case 2:
-                    return <>Вы действительно хотите разделить Бот-ключ с IP={api} на два ключа?</>
+                    return <></>
                 case 3:
                     return <>Вы действительно хотите продлить действие Бот-ключа с IP={api}?</>
                 case 4:
