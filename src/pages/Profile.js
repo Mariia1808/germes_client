@@ -1,11 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Container, Form} from "react-bootstrap";
 import { observer } from 'mobx-react-lite';
 import Header from '../components/Header';
 import { Context } from '../index.js';
+import { getUser } from '../http/userAPI';
 
 const Profile = observer(() => {
     const {user} = useContext(Context)
+    const [users, setUser] = useState([])
+    useEffect(() =>{
+        getUser().then(data=>setUser(data))
+    },[])
             return (
         <Container id="he">
               {user.setIsAuth(true)}
@@ -13,19 +18,19 @@ const Profile = observer(() => {
             <div className="column-2">
                 <h3>Общая информация</h3>
                 <span>Ваш логин</span>
-                <strong className="profile_item" id="new_login">mvbannikova1808</strong>
+                <strong className="profile_item" id="new_login">{users.login}</strong>
                 <span>Ваш e-mail адрес</span>                   
-                <strong className="profile_item">mvbannikova1808@gmail.com</strong>
+                <strong className="profile_item">{users.email}</strong>
                 <span>Имя</span>                   
-                <strong className="profile_item" id="new_name">Bannikova Mariia</strong>
+                <strong className="profile_item" id="new_name">{users.name}</strong>
                 <span>Промокод</span>                   
-                <strong className="profile_item" id="promo">cf573eeff98dbf04f658</strong>                
+                <strong className="profile_item" id="promo">{users.reference_code}</strong>                
                 <span>Последний вход</span>
-                <strong className="profile_item">2022.02.10 19:37:28</strong>
+                <strong className="profile_item">{users.last_visit}</strong>
                 <span>IP адрес последнего входа</span>
-                <strong className="profile_item">178.72.71.150</strong>
+                <strong className="profile_item">{users.last_ip}</strong>
                 <span>ID телеграм бота @Germes_bet_informer_bot</span>
-                <strong className="profile_item" id="tlg_id">не установлен</strong>                
+                <strong className="profile_item" id="tlg_id">{users.telegram_id}</strong>                
             </div>
             <div className="column-2">
                 <div className="operacy">

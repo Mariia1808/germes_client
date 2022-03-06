@@ -50,7 +50,7 @@ const AttentionTable = ({show, onHide, subr}) => {
                 })()}
                 
                 <tr><td class="col_title">Тарифный план:</td><td class="col_value">{subr.rate_id}</td></tr>
-                <tr><td class="col_title">Дата создания:</td><td class="col_value"><SimpleDateTime dateSeparator="-" DateFormat="dmY" showTime="0">{subr.date_create}</SimpleDateTime></td></tr>
+                <tr><td class="col_title">Дата создания:</td><td class="col_value"><SimpleDateTime dateSeparator="-" DateFormat="DMY" showTime="0">{subr.date_create}</SimpleDateTime></td></tr>
                 <tr><td class="col_title">Дата запуска:</td><td class="col_value"><SimpleDateTime dateSeparator="-" DateFormat="dmY" showTime="0">{subr.date_start}</SimpleDateTime></td></tr>
                 <tr><td class="col_title">Дата окончания:</td><td class="col_value"><SimpleDateTime dateSeparator="-" DateFormat="dmY" showTime="0">{subr.date_end}</SimpleDateTime></td></tr>
                 <tr><td class="col_title">Дополнительное время:</td><td class="col_value">{subr.extra_time}</td></tr>

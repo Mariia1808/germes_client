@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useFavicon, useTitle } from 'react-use';
 import "../css/css.js"
+import { getUser } from '../http/userAPI.js';
 import LeftMenu from './LeftMenu.js';
 
 
@@ -12,13 +13,17 @@ const Header = () => {
     useTitle('Germes - Личный кабинет')
     const location = useLocation()
     const [name, setName]=useState()
+    const [users, setUser] = useState([])
+    useEffect(() =>{
+        getUser().then(data=>setUser(data))
+    },[])
         return (
             <Container id="h">
                 <div className="content_admin">
             <div className="header">
                 <button className="cl" onClick={()=> setModalLeftMenu(true)}><i className="bi bi-card-list"></i></button>
                 <h1>Панель управления GermesBot</h1>
-                <div className="users_info"><a href="#" id="rp_users">mvbannikova1808@gmail.com<span id="users_avatar"><i className="fal fa-user"></i></span></a></div>
+                <div className="users_info"><a href="#" id="rp_users">{users.email}<span id="users_avatar"><i className="fal fa-user"></i></span></a></div>
             </div>
             <div className="paginator">
                 <div id="page_info">

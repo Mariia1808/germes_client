@@ -58,7 +58,12 @@ export const renewKey = async(datas) => {
     return data
 }
 export const rates = async(datas) => {
-    const {data} = await axios.get('https://api-germes.ru/scripts/apikeys/bk_rates.php?active=' + datas, {withCredentials: true})
+    const {data} = await axios.get('https://api-germes.ru/scripts/apikeys/bk_rates.php?rate=' + datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+export const getUser = async(datas) => {
+    const {data} = await axios.get('https://api-germes.ru/scripts/user/user_parms.php', {withCredentials: true})
     console.log(data)
     return data
 }

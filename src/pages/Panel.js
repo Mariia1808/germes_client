@@ -34,6 +34,7 @@ const Panel = observer(() => {
     const [ModalRenew,setModalRenew] = useState(false)
     const [ModalSeparate,setModalSeparate] = useState(false)
     const [ModalStop,setModalStop] = useState(false)
+
     const [api, setApi] = useState("")
     const [id, setId] = useState("")
     const [bkid, setBkid] = useState("")
@@ -50,11 +51,11 @@ const Panel = observer(() => {
     const [balanse, setBalanse] = useState([])
     const [date_key, setDate] = useState(new Date());
     const formData1 = new FormData()
-        formData1.append('active', "N")
+        formData1.append('rate', "all")
     useEffect(() =>{
         keys("A","","","").then(data=>setSubscription(data))
         balance().then(data => setBalanse(data))
-        rates("A").then(data=>setArrRate(data))
+        rates().then(data=>setArrRate(data))
     },[])
 
     const click = async () => {
@@ -163,7 +164,7 @@ const Panel = observer(() => {
                         return <></>
                     }
                 })()}
-            <RenewKey show={ModalRenew} api={api} id={id} onHide={()=> setModalRenew(false)}/>
+            <RenewKey show={ModalRenew} api={api} balanse={balanse} rates={arrRate} id={id} onHide={()=> setModalRenew(false)}/>
             <SeparateKey show={ModalSeparate} api={api} onHide={()=> setModalSeparate(false)}/>
            {/* <Attention show={ModalVk} onHide={()=> setModalVk(false)}/> */}
            <div className="content_admin">
@@ -175,43 +176,13 @@ const Panel = observer(() => {
     				<label htmlFor="forks_bk1" className='bk1'>БК №1&nbsp;</label>
                 <select name="forks_bk1" id="forks_bk1" className="bk_ddlb">
                 <option value="0">ВСЕ</option>
-                <option value="22">1XBet</option>
-                <option value="55">1xstavka</option>
-                <option value="42">Bet365</option>
-                <option value="1000">BetBoom</option>
-                <option value="17">Betbiir_Birzha</option>
-                <option value="62">BetOnline</option>
-                <option value="9">FonBet</option>
-                <option value="21">liga stavok</option>
-                <option value="56">LootBet</option>
-                <option value="2">Marathon</option>
-                <option value="38">Melbet</option>
-                <option value="19">Olimp</option>
-                <option value="46">Olimp_com</option>
-                <option value="41">Parimatch</option>
-                <option value="12">Pinnacle</option>
-                <option value="20">WinLineBet</option>
+    
                 </select>
                     &nbsp;&nbsp;
                     <label htmlFor="forks_bk2" className='bk1'> БК №2&nbsp;</label>
                 <select name="forks_bk2" id="forks_bk2" className="bk_ddlb">
                 <option value="0">ВСЕ</option>
-                <option value="22">1XBet</option>
-                <option value="55">1xstavka</option>
-                <option value="42">Bet365</option>
-                <option value="1000">BetBoom</option>
-                <option value="17">BetFair_Birzha</option>
-                <option value="62">BetOnline</option>
-                <option value="9">FonBet</option>
-                <option value="21">liga stavok</option>
-                <option value="56">LootBet</option>
-                <option value="2">Marathon</option>
-                <option value="38">Melbet</option>
-                <option value="19">Olimp</option>
-                <option value="46">Olimp_com</option>
-                <option value="41">Parimatch</option>
-                <option value="12">Pinnacle</option>
-                <option value="20">WinLineBet</option>
+               
                 </select>
     				<Button type="submit" name="show_forks_start" className="show_forks">показать</Button>
                     <Button type="submit" name="show_forks_stop" className="stop_forks" disabled={true}>стоп</Button>
