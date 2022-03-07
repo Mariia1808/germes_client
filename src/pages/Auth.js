@@ -49,7 +49,6 @@ const Auth = observer(() => {
         <Container> 
             <div className="content">
                 {user.setIsAuth(false)}
-               
             <div id="login_form" className="cont_auth active">
         <div className="logotype">
             <img src="https://germes.bet/personal/assets/images/logo_germes-14.png" alt="Germes" />

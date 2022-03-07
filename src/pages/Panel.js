@@ -18,6 +18,7 @@ import HistoryKey from '../modals/HistoryKey';
 import RenewKey from '../modals/RenewKey';
 import SeparateKey from '../modals/SeparateKey';
 import moment from 'moment';
+import DatePicker from 'react-date-picker';
 
 
 const Panel = observer(() => {
@@ -35,6 +36,7 @@ const Panel = observer(() => {
     const [ModalSeparate,setModalSeparate] = useState(false)
     const [ModalStop,setModalStop] = useState(false)
 
+    const [headTable, setHeadTable] = useState("")
     const [api, setApi] = useState("")
     const [id, setId] = useState("")
     const [bkid, setBkid] = useState("")
@@ -51,26 +53,47 @@ const Panel = observer(() => {
     const [balanse, setBalanse] = useState([])
     const [date_key, setDate] = useState(new Date());
     const formData1 = new FormData()
-        formData1.append('rate', "all")
+    formData1.append("rate","all")
+       
     useEffect(() =>{
         keys("A","","","").then(data=>setSubscription(data))
         balance().then(data => setBalanse(data))
-        rates().then(data=>setArrRate(data))
+        rates(formData1).then(data=>setArrRate(data))
     },[])
 
     const click = async () => {
-        try {
+
             let data;
             const formData = new FormData()
             formData.append('status', key)
             formData.append('rate', rate)
             formData.append('soft', soft)
-            formData.append('date_key', moment(date_key, 'DD-MM-YYYY').format())
+            if(date_key===null){
+                formData.append('date_key','')
+            }else if (moment(date_key[0]).format('DD.MM.YYYY') === moment(date_key[1]).format('DD.MM.YYYY')){
+                formData.append('date_key', moment(date_key[0]).format('DD.MM.YYYY'))
+            }else {
+                formData.append('date_key', (moment(date_key[0]).format('DD.MM.YYYY')+'-'+moment(date_key[1]).format('DD.MM.YYYY')))
+            }
+            console.log(formData)
             data = await keys(formData);
-        } catch (e) {
-            alert("lfnf ")
-        }
-
+            setSubscription(data)
+            {(() => {
+                switch (key) {
+                case "T":
+                    return setHeadTable("Все подписки")
+                case "A":
+                    return setHeadTable("Все активные подписки")
+                case "S":
+                    return setHeadTable("Активные ключи")
+                case "Y":
+                    return setHeadTable("Остановленные ключи")
+                case "N":
+                    return setHeadTable("Неактивные ключи")
+                default:
+                    return setHeadTable("Все активные подписки")
+                }
+            })()}
     }
 
     const Data = (marker) =>{
@@ -224,10 +247,9 @@ const Panel = observer(() => {
                     </div>
                     <div className="filtr_item" id="blok_date_key">
                         <label htmlFor="date_key">Дата покупки</label>
-                        <Calendar onChange={setDate} value={date_key} selectRange={true}/>
-                        <input type="text" id="date_key" name="date_key" className="inp_style_tab" value="" />
+                        <DatePicker onChange={setDate} value={date_key} selectRange={true}/>
                             &nbsp;&nbsp;<button type="button" onClick={() => click()} className="but"><i className="bi bi-check-lg" title="Применить"></i></button>
-                            &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить календарь"></i></button>
+                            &nbsp;&nbsp;<button className="but"><i className="bi bi-x-lg" title="Очистить поиск"></i></button>
                     </div>
                 </div>
             </div>
@@ -238,22 +260,8 @@ const Panel = observer(() => {
             <form>
             <div className="tab_api_key active">
                 <h6>
-                {(() => {
-                    switch (key) {
-                    case "T":
-                        return <>Все подписки </>
-                    case "A":
-                        return <>Все активные подписки </>
-                    case "S":
-                        return <>Активные ключи </>
-                    case "Y":
-                        return <>Остановленные ключи </>
-                    case "N":
-                        return <>Неактивные ключи </>
-                    default:
-                        return <>Все активные подписки </>
-                    }
-                })()}
+                    {headTable}
+                
                     (всего: <span className="all" id="total_count">{subscription.length}</span>)</h6>
                     
                 <div className="head_tab">
