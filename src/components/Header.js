@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useFavicon, useTitle } from 'react-use';
 import "../css/css.js"
 import { getUser } from '../http/userAPI.js';
+import { Context } from '../index.js';
 import LeftMenu from './LeftMenu.js';
 
 
@@ -12,10 +13,13 @@ const Header = () => {
     useFavicon('https://germes.bet/personal/assets/images/favicon.png')
     useTitle('Germes - Личный кабинет')
     const location = useLocation()
+    const {user} = useContext(Context)    
     const [name, setName]=useState()
     const [users, setUser] = useState([])
+    const formData1 = new FormData()
+    formData1.append("require","userdata")
     useEffect(() =>{
-        getUser().then(data=>setUser(data))
+        getUser(formData1).then(data=>setUser(data))
     },[])
         return (
             <Container id="h">
@@ -23,7 +27,7 @@ const Header = () => {
             <div className="header">
                 <button className="cl" onClick={()=> setModalLeftMenu(true)}><i className="bi bi-card-list"></i></button>
                 <h1>Панель управления GermesBot</h1>
-                <div className="users_info"><a href="#" id="rp_users">{users.email}<span id="users_avatar"><i className="fal fa-user"></i></span></a></div>
+                <div className="users_info"><a href="/profile" id="rp_users">{users.email}<span id="users_avatar"><i className="bi bi-person-circle"></i></span></a></div>
             </div>
             <div className="paginator">
                 <div id="page_info">

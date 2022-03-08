@@ -52,12 +52,21 @@ const Panel = observer(() => {
     const [subscription, setSubscription] = useState([])
     const [balanse, setBalanse] = useState([])
     const [date_key, setDate] = useState(new Date());
+
     const formData1 = new FormData()
-    formData1.append("rate","all")
-       
+    formData1.append("rate_set","all")
+    formData1.append("require","tariffs")
+
+    const formData2 = new FormData()
+    formData2.append("require","accounts")
+
+    const formData3 = new FormData()
+    formData3.append("require","apikeys")
+
+
     useEffect(() =>{
-        keys("A","","","").then(data=>setSubscription(data))
-        balance().then(data => setBalanse(data))
+        keys(formData3).then(data=>setSubscription(data))
+        balance(formData2).then(data => setBalanse(data))
         rates(formData1).then(data=>setArrRate(data))
     },[])
 

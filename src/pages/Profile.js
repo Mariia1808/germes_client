@@ -4,12 +4,16 @@ import { observer } from 'mobx-react-lite';
 import Header from '../components/Header';
 import { Context } from '../index.js';
 import { getUser } from '../http/userAPI';
+import SimpleDateTime from 'react-simple-timestamp-to-date';
+import moment from 'moment';
 
 const Profile = observer(() => {
     const {user} = useContext(Context)
     const [users, setUser] = useState([])
+    const formData1 = new FormData()
+    formData1.append("require","userdata")
     useEffect(() =>{
-        getUser().then(data=>setUser(data))
+        getUser(formData1).then(data=>setUser(data))
     },[])
             return (
         <Container id="he">
@@ -26,7 +30,7 @@ const Profile = observer(() => {
                 <span>Промокод</span>                   
                 <strong className="profile_item" id="promo">{users.reference_code}</strong>                
                 <span>Последний вход</span>
-                <strong className="profile_item">{users.last_visit}</strong>
+                <strong className="profile_item">{moment(<SimpleDateTime dateSeparator="-" format="DD.MM.YYYY" showTime="0">{users.last_visit}</SimpleDateTime>).format('DD.MM.YYYY')}</strong>
                 <span>IP адрес последнего входа</span>
                 <strong className="profile_item">{users.last_ip}</strong>
                 <span>ID телеграм бота @Germes_bet_informer_bot</span>

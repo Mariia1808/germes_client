@@ -35,10 +35,10 @@ const Reviews = observer(() => {
                 <div className="pag">
                 <button className="page_button" name="page_navigator[0]" disabled={true}>&lt; Пред</button>
                 <b>&nbsp;1&nbsp;</b>
-                <input type='button' className='page_button_small' value='2' name='page_navigator[2]' className='small_button' />
-                <input type='button' className='page_button_small' value='3' name='page_navigator[3]' className='small_button' />
-                <input type='button' className='page_button_small' value='4' name='page_navigator[4]' className='small_button' />
-                <input type='button' className='page_button_small' value='5' name='page_navigator[5]' className='small_button' />
+                <input type='button' className='page_button_small' value='2' name='page_navigator[2]'  />
+                <input type='button' className='page_button_small' value='3' name='page_navigator[3]'  />
+                <input type='button' className='page_button_small' value='4' name='page_navigator[4]'  />
+                <input type='button' className='page_button_small' value='5' name='page_navigator[5]'  />
                 </div>
                 <button className="page_button"name="page_navigator[2]" >&nbsp;След &gt;</button>
             </div></div>

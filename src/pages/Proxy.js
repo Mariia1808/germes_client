@@ -56,9 +56,6 @@ const Proxy = observer(() => {
                 </tbody> 
             </table>
         </div>     
-            <div className="proxy_vds">
-                <VdsCard/>
-            </div>
             </Container>
         );
     

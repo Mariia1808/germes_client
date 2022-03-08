@@ -10,7 +10,7 @@ const FinanceTable = ({number}) => {
                {(() => {
                     switch (number) {
                     case 1:
-                        return <div className="content_wall" id="tabs_key" id="con1">
+                        return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>Все операции</h3>
                             <div className="head_tab">
@@ -48,7 +48,7 @@ const FinanceTable = ({number}) => {
                             </div>
                         </div>            
                     case 2:
-                        return <div className="content_wall" id="tabs_key" id="con1">
+                        return <div className="content_wall" id="tabs_key con1">
                         <div className="tab_api_key active">
                         <h3>Пополнения</h3>
                         <div className="head_tab">
@@ -86,7 +86,7 @@ const FinanceTable = ({number}) => {
                             </div>
                         </div>            
                     case 3:
-                        return <div className="content_wall" id="tabs_key" id="con1">
+                        return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>История QIWI</h3>
                             <div className="head_tab">
@@ -126,7 +126,7 @@ const FinanceTable = ({number}) => {
                             </div>
                         </div>            
                     case 4:
-                        return <div className="content_wall" id="tabs_key" id="con1">
+                        return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>Партнерка</h3>
                             <div className="head_tab">
@@ -166,7 +166,7 @@ const FinanceTable = ({number}) => {
                             </div>
                         </div>            
                     case 5:
-                        return <div className="content_wall" id="tabs_key" id="con1">
+                        return <div className="content_wall" id="tabs_key con1">
                         <div className="tab_api_key active">
                         <h3>Списания</h3>
                         <div className="head_tab">

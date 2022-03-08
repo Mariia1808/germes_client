@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import "../css/css.js"
-import VdsCard from '../components/VdsCard.js';
 import { Container } from 'react-bootstrap';
 import { Context } from '../index.js';
+import VdsList from '../components/VdsList.js';
 
 const Vds = observer(() => {
     const {user} = useContext(Context)
@@ -11,7 +11,7 @@ const Vds = observer(() => {
             <Container id='he'>
                 {user.setIsAuth(true)}
             <div className="proxy_vds">
-                <VdsCard/>
+                <VdsList/>
             </div>
             </Container>
         );

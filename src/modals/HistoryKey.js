@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 import "../css/css.js"
 import { bkHistory } from '../http/userAPI.js';
 import SimpleDateTime  from 'react-simple-timestamp-to-date';
-
+import moment from 'moment';
 
 const HistoryKey = ({show, onHide, bk_id, api}) => {
     const [bkHis, setBkHis] = useState([])
@@ -33,7 +33,7 @@ const HistoryKey = ({show, onHide, bk_id, api}) => {
 
             Бот-ключ '{api}'
             {bkHis.map(histor=>
-            <><label><b><SimpleDateTime dateSeparator="-" format="dmY" showTime="0">{histor.processed_date}</SimpleDateTime></b> - {histor.action}<br/><br/></label></>
+            <><label><b>{moment(<SimpleDateTime dateSeparator="-" format="dmY" showTime="0">{histor.processed_date}</SimpleDateTime>).format('DD.MM.YYYY')}</b> - {histor.action}<br/><br/></label></>
             )}
         </Modal.Body>
         <Modal.Footer>

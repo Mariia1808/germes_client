@@ -1,10 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import "../css/css.js"
 
-const VdsCard = () => {
+const VdsCard = observer(({vds}) => {
         return (
-            <Container>
+            <div>
                 <div className="pv_column-3">
                 <div className="title_pv">
                     <div className="icon"><i className="fas fa-computer-classic"></i></div>
@@ -19,9 +20,9 @@ const VdsCard = () => {
                     <p>Полный root доступ к серверу. Частота процессора до 3.5 GHz. Подходят для большинства повседневных задач. Защита от DDoS. Технология KVM мощная и надежная.</p>
                 </div>
             </div>
-            </Container>
+            </div>
         );
     
-};
+});
 
 export default VdsCard;
