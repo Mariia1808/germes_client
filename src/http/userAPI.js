@@ -91,4 +91,36 @@ export const getProxy = async(datas) => {
     console.log(data)
     return data
 }
-
+//Акции
+export const getActs = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/sundries/acts.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+//Разделение ключа на два
+export const separateKey = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/apikeys/action_separate.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+//список бк
+export const getBk = async(datas) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/sundries/get_bk_list.php', datas, {withCredentials: true})
+    console.log(data)
+    return data
+}
+//таблицы для финансов
+export const getFinanceTable = async(datas, num) => {
+    const {data} = await axios.post('https://api-germes.ru/scripts/finance/operations.php', datas, {withCredentials: true})
+    console.log(data.finance_tabs)
+    if(num === "all")
+    return data.finance_tabs["Все операции"]
+    if(num === "add")
+    return data.finance_tabs["Пополнения"]
+    if(num === "qiwi")
+    return data.finance_tabs["История QIWI"]
+    if(num === "p")
+    return data.finance_tabs["Партнерка"]
+    if(num === "off")
+    return data.finance_tabs["Списания"]
+}

@@ -1,17 +1,24 @@
 import { observer } from 'mobx-react-lite';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Header from '../components/Header.js';
 import "../css/css.js"
+import { getUser } from '../http/userAPI.js';
 import { Context } from '../index.js';
 
 const PartnerShip = observer(() => {
     const {user} = useContext(Context)
+    const [users, setUser] = useState([])
+    const formData1 = new FormData()
+    formData1.append("require","userdata")
+    useEffect(() =>{
+        getUser(formData1).then(data=>setUser(data))
+    },[])
         return (   
                 <div className="content_wall" id='rel'>
                     {user.setIsAuth(true)}
-                    <div className="div-info" id='s'>Ваш промо-код: <span>63ccbcfa6141937edbe8,</span>
-                        &nbsp;переходов по ссылке: <span>0</span>
+                    <div className="div-info" id='s'>Ваш промо-код: <span>{users.reference_code},</span>
+                        &nbsp;переходов по ссылке: <span>{users.reference_count}</span>
                         <span id='e'><a href="#" id="rules_popup">КАК РАБОТАЕТ ПАРТНЁРСКАЯ ПРОГРАММА?</a></span>
                     </div>
                     <br />

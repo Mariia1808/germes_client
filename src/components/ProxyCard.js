@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import "../css/css.js"
 
-const VdsCard = observer(({vds}) => {
+const ProxyCard = observer(({vds}) => {
         return (
                 <div className="pv_column-3 act-3">
                     <div className="title_pv">
@@ -22,4 +22,4 @@ const VdsCard = observer(({vds}) => {
     
 });
 
-export default VdsCard;
+export default ProxyCard;

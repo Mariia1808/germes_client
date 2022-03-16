@@ -32,20 +32,20 @@ const Registration = observer(() => {
                 <div className="form_item">
                     <label htmlFor="email_sgn">E-mail *</label>
                     <input type="text" name="email" id="email_sgn"
-                    value={email} onChange={e => setEmail(e.target.value)} className="dark_line_input" autocomplete="off" />
+                    value={email} onChange={e => setEmail(e.target.value)} className="dark_line_input" autoComplete="off" />
                     <span className="focus-border"></span>
                 </div>
                 <div className="form_item password">
                     <label htmlFor="password_sgn">Пароль *</label>
                     <input type="text" name="password" id="password_sgn"
-                    value={password} onChange={e => setPassword(e.target.value)} className="dark_line_input password_input" autocomplete="off" />
+                    value={password} onChange={e => setPassword(e.target.value)} className="dark_line_input password_input" autoComplete="off" />
                     <span className="focus-border"></span>
                     <div className="eye"><i className="fal fa-eye-slash"></i></div>
                 </div>
                 <div className="form_item">
                     <label htmlFor="phone_sgn">Моб. телефон *</label>
                     <input type="text" name="phone" id="phone_sgn"
-                    value={phone} onChange={e => setPhone(e.target.value)} className="dark_line_input" autocomplete="off" maxlength="12" />
+                    value={phone} onChange={e => setPhone(e.target.value)} className="dark_line_input" autoComplete="off" maxlength="12" />
                     <span className="focus-border"></span>
                 </div>                
                 <p className="form_item">Для телефона только цифры (например: 79811534755). На этот мобильный телефон будет отправлено СМС с кодом для подтверждения регистрации.</p>
@@ -53,7 +53,7 @@ const Registration = observer(() => {
                 <div className="form_item">
                     <label htmlFor="refcode">Промо-код</label>
                     <input type="text" name="refcode" id="refcode" 
-                    value={promo} onChange={e => setPromo(e.target.value)} className="dark_line_input" autocomplete="off" />
+                    value={promo} onChange={e => setPromo(e.target.value)} className="dark_line_input" autoComplete="off" />
                     <span className="focus-border"></span>
                 </div>
                             <p className="form_item">Я ознакомился с <a href="terms" target="_blank"><span className="">условиями использования</span></a>, 

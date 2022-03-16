@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import "../css/css.js"
-import VdsCard from '../components/VdsCard.js';
+import ProxyList from '../components/ProxyList';
 import { Container } from 'react-bootstrap';
 import { Context } from '../index.js';
 
@@ -12,9 +12,9 @@ const Proxy = observer(() => {
             <Container id='he'>
                 {user.setIsAuth(true)}
                 <div class="pv_banner">
-            <a href="https://proxym.net/r/germes">
+            {/* <a href="https://proxym.net/r/germes">
                 <video preload="auto" autoplay="autoplay" loop="loop"><source src="https://germes.bet/personal/assets/images/pv/proxim.mp4" /></video>
-            </a>
+            </a> */}
         </div>
         <div class="content_wall proxy_wall">
             <h6>Проверь свой прокси!</h6>
@@ -55,6 +55,7 @@ const Proxy = observer(() => {
                     </tr>                    
                 </tbody> 
             </table>
+            <ProxyList/>
         </div>     
             </Container>
         );

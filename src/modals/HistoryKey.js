@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import "../css/css.js"
+import { Date } from '../function/functions.js';
 import { bkHistory } from '../http/userAPI.js';
-import SimpleDateTime  from 'react-simple-timestamp-to-date';
-import moment from 'moment';
+
 
 const HistoryKey = ({show, onHide, bk_id, api}) => {
     const [bkHis, setBkHis] = useState([])
@@ -33,7 +33,7 @@ const HistoryKey = ({show, onHide, bk_id, api}) => {
 
             Бот-ключ '{api}'
             {bkHis.map(histor=>
-            <><label><b>{moment(<SimpleDateTime dateSeparator="-" format="dmY" showTime="0">{histor.processed_date}</SimpleDateTime>).format('DD.MM.YYYY')}</b> - {histor.action}<br/><br/></label></>
+            <><label><b>{Date(histor.processed_date)}</b> - {histor.action}<br/><br/></label></>
             )}
         </Modal.Body>
         <Modal.Footer>

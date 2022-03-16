@@ -1,15 +1,29 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import "../css/css.js"
+import { cost, Date } from '../function/functions.js';
 
 
 
-const FinanceTable = ({number}) => {
+const FinanceTable = ({number, tables}) => {
+        
+        const id = (kolvo) =>{
+            let stroka = "";
+            if ((kolvo !== null)||(kolvo !== ""))
+            {
+                for (let i = 0; i < 36; i++){
+                stroka += kolvo[i]
+                }
+                return stroka
+            }
+            
+        }
         return (
             <Container id="he">
+                {console.log(tables)}
                {(() => {
                     switch (number) {
-                    case 1:
+                    case "all":
                         return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>Все операции</h3>
@@ -37,17 +51,34 @@ const FinanceTable = ({number}) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                                {(() => {
+                                        switch (tables.length>0) {
+                                        case true:
+                                            return <>
+                                            {tables.map(data=>
+                                                <tr>
+                                                    <td>{Date(data.action_date)}</td>
+                                                    <td>{cost(data.amount)} &#8381;</td>
+                                                    <td>{data.action_name}</td>
+                                                    <td>{data.comments}</td>
+                                                </tr>  
+                                            )}
+                                            </>
+                                        default:
+                                            return <tr><td align="center" colSpan='4'>Нет данных по Вашему запросу</td></tr>
+                                    }
+                                    })()}
+                                
                                 </tbody>
                             </table>
                             </div>
                             <div className="paging">
                             <br /><div className='page_info'>
-                            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+                            Страница 1 из 1. Записи от 1 до 0. Всего записей: {tables.length}.
                                 </div>
                             </div>
                         </div>            
-                    case 2:
+                    case "add":
                         return <div className="content_wall" id="tabs_key con1">
                         <div className="tab_api_key active">
                         <h3>Пополнения</h3>
@@ -75,17 +106,33 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                        <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                        {(() => {
+                        switch (tables.length>0) {
+                        case true:
+                            return <>
+                            {tables.map(data=>
+                                <tr>
+                                    <td>{Date(data.action_date)}</td>
+                                    <td>{cost(data.amount)} &#8381;</td>
+                                    <td>{data.action_name}</td>
+                                    <td>{data.comments}</td>
+                                </tr>  
+                            )}</>
+                            default:
+                                return <tr><td>Нет данных по Вашему запросу</td></tr>
+                        }
+                        })()}
+                                
                         </tbody>
                     </table>
                     </div>
                             <div className="paging">
                             <br /><div className='page_info'>
-                            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+                            Страница 1 из 1. Записи от 1 до 0. Всего записей: {tables.length}.
                                 </div>
                             </div>
                         </div>            
-                    case 3:
+                    case "qiwi":
                         return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>История QIWI</h3>
@@ -115,17 +162,51 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                            <tbody>
-                        <tr><td colSpan='6' align='center'>Нет данных по Вашему запросу</td> </tr>                       
-                            </tbody>
+                           {(() => {
+                            switch (tables.length>0) {
+                            case true:
+                                return <>
+                            {tables.map(data=>
+                            <tr>
+                                <td>{data.created_at}</td>
+                                <td>{id(data.bill_id)}</td>
+                                <td>{cost(data.sum)} &#8381;</td>
+                                {(() => {
+                                    switch (data.payment_status) {
+                                    case "EXPIRED":
+                                        return <td>Просрочен</td>
+                                    case "PAID":
+                                        return <td>Зачислен</td>
+                                    default:
+                                        return <></>
+                            }
+                            })()}
+                            <td>{data.expired}</td>
+                            {(() => {
+                                switch (data.payment_status) {
+                                case "EXPIRED":
+                                    return <td><button>Удалить</button></td>
+                                default:
+                                    return <></>
+                            }
+                            })()}
+                                </tr>  
+                            )} </>
+                            default:
+                                return <tr><td align="center" colSpan='6'>Нет данных по Вашему запросу</td></tr>
+                            }
+                            })()}
+                                              
+                           </tbody>
                         </table>
                         </div>
                             <div className="paging">
                             <br /><div className='page_info'>
-                            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+                            Страница 1 из 1. Записи от 1 до 0. Всего записей: {tables.length}.
                                 </div>
                             </div>
                         </div>            
-                    case 4:
+                    case "p":
                         return <div className="content_wall" id="tabs_key con1">
                             <div className="tab_api_key active">
                             <h3>Партнерка</h3>
@@ -155,17 +236,26 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                    <tr><td colSpan='6' align='center'>Нет данных по Вашему запросу</td> </tr>             
+                        {(() => {
+                        switch (tables.length>0) {
+                            case true:
+                                return <></>
+                            default:
+                                return <tr><td align="center" colSpan='6'>Нет данных по Вашему запросу</td></tr>
+                        }
+                        })()}
+                                                   
+
                     </tbody>
                     </table>
                     </div>
                             <div className="paging">
                             <br /><div className='page_info'>
-                            Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+                            Страница 1 из 1. Записи от 1 до 0. Всего записей: {tables.length}.
                                 </div>
                             </div>
                         </div>            
-                    case 5:
+                    case "off":
                         return <div className="content_wall" id="tabs_key con1">
                         <div className="tab_api_key active">
                         <h3>Списания</h3>
@@ -193,13 +283,29 @@ const FinanceTable = ({number}) => {
                             </tr>
                         </thead>
                         <tbody>
-                        <tr><td colSpan='4' align='center'>Нет данных по Вашему запросу</td></tr>                        
+                        {(() => {
+                            switch (tables.length>0) {
+                            case true:
+                                return <>
+                                {tables.map(data=>
+                                    <tr>
+                                        <td>{Date(data.action_date)}</td>
+                                        <td>{cost(data.amount)} &#8381;</td>
+                                        <td>{data.action_name}</td>
+                                        <td>{data.comments}</td>
+                                    </tr>  
+                                )}</>
+                            default:
+                                return <tr><td align="center" colSpan='4'>Нет данных по Вашему запросу</td></tr>
+                        }
+                        })()}
+                               
                         </tbody>
                     </table>
                     </div>
                     <div className="paging">
                     <br /><div className='page_info'>
-                    Страница 1 из 1. Записи от 1 до 0. Всего записей: 0.
+                    Страница 1 из 1. Записи от 1 до 0. Всего записей: {tables.length}.
                         </div>
                     </div>
                 </div>            

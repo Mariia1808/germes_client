@@ -2,10 +2,30 @@ import React, { useState } from 'react';
 import {Button, Container} from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import "../css/css.js"
+import { separateKey } from '../http/userAPI.js';
 
 
-const SeparateKey = ({show, onHide, api}) => {
+const SeparateKey = ({show, onHide, api, id}) => {
     const [yes, setYes]=useState(false)
+    const [error, setError] = useState("")
+    const [ip, setIp]=useState("")
+    const separate = async () =>{
+        let data;
+        const formData = new FormData()
+            formData.append('bk_id', id)
+            formData.append('bk_ip', ip)
+                console.log(formData)
+            data = await separateKey(formData);
+            if(data.response === "no_error")
+            {
+                setError()
+                window.location.reload()
+            }else{
+                setError(data.error_text)
+            }
+
+    }
+
     return (
         <Modal 
         show={show}
@@ -38,12 +58,15 @@ const SeparateKey = ({show, onHide, api}) => {
                         <br />
                         <div class="row">
                             <span class="text-lable">&nbsp;&nbsp;&nbsp;&nbsp;Новый IP:&nbsp;&nbsp;</span>
-                            <span class="2"><input type="text" class="new_ip" name="user_ip_2" is_required="Y" field_name="Новый IP" id="user_ip_2" value="" /></span>
+                            <span class="2"><input type="text" onChange={e => setIp(e.target.value)} class="new_ip" id="user_ip_2" /></span>
                         </div>
-                    </div>              
+                    </div> 
+                    <div  id="error">
+                            {error}
+                        </div>             
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className="btnclass">Изменить</button>
+                        <button className="btnclass" onClick={()=>separate()}>Изменить</button>
                         <button className="btnclass" onClick={()=>setYes(false)}>Отмена</button>
                     </Modal.Footer>
                     </>

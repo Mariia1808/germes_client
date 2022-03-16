@@ -6,7 +6,7 @@ import FinanceTable from '../components/FinanceTable.js';
 import { observer } from 'mobx-react-lite';
 import OperationBalance from '../components/OperationBalance.js';
 import { Context } from '../index.js';
-import { balance } from '../http/userAPI.js';
+import { balance, getFinanceTable } from '../http/userAPI.js';
 
 
 const Finance = observer(() => {
@@ -14,11 +14,19 @@ const Finance = observer(() => {
     const [operation, setOperation] = useState('')
     const {user} = useContext(Context)
     const [balanse, setBalanse] = useState([])
-
+    const [tables, setTables] = useState([])
+    const formData2 = new FormData()
+    formData2.append("require","accounts")
     useEffect(() =>{
-        balance().then(data=>setBalanse(data))
+        balance(formData2).then(data=>setBalanse(data))
     },[])
-
+    const FinTable = (req) =>{
+        const formData1 = new FormData()
+        formData1.append("require", "all_tabs")
+        getFinanceTable(formData1, req).then(data=>setTables(data))
+        console.log(tables)
+        setTable(req)
+    }
         return (
             <Container id="he">
                   {user.setIsAuth(true)}
@@ -71,16 +79,16 @@ const Finance = observer(() => {
                 <div className="head_table">
                     <div className="tabs">
                         <ul>
-                            <li><Button onClick={()=>setTable(1)} target="_self" className="btnclass">Все операции</Button></li>
-                            <li><Button onClick={()=>setTable(2)} target="_self" className="btnclass">Пополнения</Button></li>
-							<li><Button onClick={()=>setTable(3)} target="_self" className="btnclass">История (QIWI)</Button></li>
-                            <li><Button onClick={()=>setTable(4)} target="_self" className="btnclass">Партнерка</Button></li>
-                            <li><Button onClick={()=>setTable(5)} target="_self" className="btnclass">Списания</Button></li>
+                            <li><Button onClick={()=>FinTable("all")} target="_self" className="btnclass">Все операции</Button></li>
+                            <li><Button onClick={()=>FinTable("add")} target="_self" className="btnclass">Пополнения</Button></li>
+							<li><Button onClick={()=>FinTable("qiwi")} target="_self" className="btnclass">История (QIWI)</Button></li>
+                            <li><Button onClick={()=>FinTable("p")} target="_self" className="btnclass">Партнерка</Button></li>
+                            <li><Button onClick={()=>FinTable("off")} target="_self" className="btnclass">Списания</Button></li>
                         </ul>
                     </div>
                     <div className="search">
                         <label htmlFor="date_key">Поиск по дате&nbsp;&nbsp;</label>
-                        <input className="inp_style_tab" id="date_key"  type="text" name="search" autocomplete="off" />
+                        <input className="inp_style_tab" id="date_key"  type="text" name="search" autoComplete="off" />
                     </div>
                     <div className="clear_form" title="Очистить все поля формы"><a className="inp_style_tab"><i className="fal fa-times"></i></a></div>
                     </div>
@@ -88,8 +96,7 @@ const Finance = observer(() => {
             </div>
             <form id="finance">
                 
-                <FinanceTable number={table}/>
-            
+                <FinanceTable number={table} tables={tables}/>
         </form>
                 </div>
             </Container>
